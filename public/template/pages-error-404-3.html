@@ -18,6 +18,9 @@
     <!-- Javascript Assets -->
     <script src="js/app.js" defer></script>
 
+    <!-- Special script for current page -->
+    <script src="js/pages/pages-error-404-3.js" defer></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,11 +32,12 @@
       /**
        * THIS SCRIPT REQUIRED FOR PREVENT FLICKERING IN SOME BROWSERS
        */
-      localStorage.getItem("_x_darkMode_on") === "true" &&
+      localStorage.getItem("dark-mode") === "dark" &&
         document.documentElement.classList.add("dark");
     </script>
   </head>
-  <body x-data class="is-header-blur" x-bind="$store.global.documentBody">
+
+  <body class="is-header-blur is-sidebar-open">
     <!-- App preloader-->
     <div
       class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
@@ -44,21 +48,21 @@
     <!-- Page Wrapper -->
     <div
       id="root"
-      class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900"
-      x-cloak
+      class="min-h-100vh cloak flex grow bg-slate-50 dark:bg-navy-900"
     >
+      <!-- Main Content Wrapper -->
       <main class="grid w-full grow grid-cols-1 place-items-center">
         <div class="max-w-2xl p-6 text-center">
           <div class="w-full max-w-md">
             <img
               class="w-full"
-              x-show="!$store.global.isDarkModeEnabled"
+              id="hero-image-light"
               src="images/illustrations/error-404.svg"
               alt="image"
             />
             <img
               class="w-full"
-              x-show="$store.global.isDarkModeEnabled"
+              id="hero-image-dark"
               src="images/illustrations/error-404-dark.svg"
               alt="image"
             />
@@ -79,14 +83,5 @@
         </div>
       </main>
     </div>
-
-    <!-- 
-        This is a place for Alpine.js Teleport feature 
-        @see https://alpinejs.dev/directives/teleport
-      -->
-    <div id="x-teleport-target"></div>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => Alpine.start());
-    </script>
   </body>
 </html>

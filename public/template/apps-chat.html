@@ -18,6 +18,12 @@
     <!-- Javascript Assets -->
     <script src="js/app.js" defer></script>
 
+    <!-- Javascript Third Party Libraries: Components -->
+    <script src="js/libs/components.js" defer></script>
+
+    <!-- Special script for current page -->
+    <script src="js/pages/apps-chat.js"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,16 +35,12 @@
       /**
        * THIS SCRIPT REQUIRED FOR PREVENT FLICKERING IN SOME BROWSERS
        */
-      localStorage.getItem("_x_darkMode_on") === "true" &&
+      localStorage.getItem("dark-mode") === "dark" &&
         document.documentElement.classList.add("dark");
     </script>
   </head>
 
-  <body
-    x-data
-    x-bind="$store.global.documentBody"
-    class="has-min-sidebar is-sidebar-open is-header-blur"
-  >
+  <body class="is-header-blur is-sidebar-open has-min-sidebar">
     <!-- App preloader-->
     <div
       class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
@@ -49,8 +51,7 @@
     <!-- Page Wrapper -->
     <div
       id="root"
-      class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900"
-      x-cloak
+      class="min-h-100vh cloak flex grow bg-slate-50 dark:bg-navy-900"
     >
       <!-- Sidebar -->
       <div class="sidebar print:hidden">
@@ -77,8 +78,9 @@
               <!-- Dashobards -->
               <a
                 href="dashboards-crm-analytics.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Dashboards'"
+                data-tooltip="Dashboards"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -109,8 +111,9 @@
               <!-- Apps -->
               <a
                 href="apps-list.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"
-                x-tooltip.placement.right="'Applications'"
+                data-tooltip="Applications"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"
               >
                 <svg
                   class="h-7 w-7"
@@ -152,8 +155,9 @@
               <!-- Pages And Layouts -->
               <a
                 href="pages-card-user-1.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Pages & Layouts'"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                data-tooltip="Pages & Layouts"
+                data-placement="right"
               >
                 <svg
                   class="h-7 w-7"
@@ -185,9 +189,10 @@
 
               <!-- Forms -->
               <a
-                href="form-input-text.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Forms'"
+                href="forms-input-text.html"
+                data-tooltip="Forms"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -215,8 +220,9 @@
               <!-- Components -->
               <a
                 href="components-accordion.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Components'"
+                data-tooltip="Components"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -244,8 +250,9 @@
               <!-- Elements -->
               <a
                 href="elements-avatar.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Elements'"
+                data-tooltip="Elements"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -270,7 +277,7 @@
             <div class="flex flex-col items-center space-y-3 py-3">
               <!-- Settings -->
               <a
-                href="form-layout-5.html"
+                href="forms-layout-5.html"
                 class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -292,16 +299,8 @@
               </a>
 
               <!-- Profile -->
-              <div
-                x-data="usePopper({placement:'right-end',offset:12})"
-                @click.outside="isShowPopper && (isShowPopper = false)"
-                class="flex"
-              >
-                <button
-                  @click="isShowPopper = !isShowPopper"
-                  x-ref="popperRef"
-                  class="avatar h-12 w-12"
-                >
+              <div id="profile-wrapper" class="flex">
+                <button id="profile-ref" class="avatar h-12 w-12">
                   <img
                     class="rounded-full"
                     src="images/avatar/avatar-12.jpg"
@@ -311,12 +310,7 @@
                     class="absolute right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-success dark:border-navy-700"
                   ></span>
                 </button>
-
-                <div
-                  :class="isShowPopper && 'show'"
-                  class="popper-root fixed"
-                  x-ref="popperRoot"
-                >
+                <div id="profile-box" class="popper-root fixed">
                   <div
                     class="popper-box w-64 rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-600 dark:bg-navy-700"
                   >
@@ -595,8 +589,7 @@
               </div>
 
               <button
-                @click="$store.global.isSidebarExpanded = false"
-                class="btn h-7 w-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden"
+                class="sidebar-close btn h-7 w-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -641,10 +634,7 @@
                     </button>
                   </div>
                 </div>
-                <div
-                  class="swiper px-4"
-                  x-init="$nextTick(()=>$el._x_swiper= new Swiper($el,{  slidesPerView: 'auto', spaceBetween:10, slidesPerGroup:3}))"
-                >
+                <div id="history-slide" class="swiper px-4">
                   <div class="swiper-wrapper mt-1">
                     <div
                       class="swiper-slide flex w-11 shrink-0 flex-col items-center justify-center"
@@ -1022,7 +1012,6 @@
                 class="is-scrollbar-hidden mt-3 flex grow flex-col overflow-y-auto"
               >
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-19.jpg',name:'Alfredo Elliott'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1065,7 +1054,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-20.jpg',name:'Konnor Guzman'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1100,7 +1088,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-18.jpg',name:'Travis Fuller'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1147,7 +1134,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-14.jpg',name:'Derrick Simmons'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1190,7 +1176,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-11.jpg',name:'Katrina West'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1228,7 +1213,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-13.jpg',name:'Corey Evans'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1263,7 +1247,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-10.jpg',name:'Anthony Jensen'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1298,7 +1281,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-12.jpg',name:'Lance Tucker'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1334,7 +1316,6 @@
                 </div>
 
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-19.jpg',name:'Alfredo Elliott'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1377,7 +1358,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-20.jpg',name:'Konnor Guzman'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1412,7 +1392,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-18.jpg',name:'Travis Fuller'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1459,7 +1438,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-14.jpg',name:'Derrick Simmons'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1502,7 +1480,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-11.jpg',name:'Katrina West'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1540,7 +1517,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-13.jpg',name:'Corey Evans'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1575,7 +1551,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-10.jpg',name:'Anthony Jensen'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1610,7 +1585,6 @@
                   </div>
                 </div>
                 <div
-                  @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-12.jpg',name:'Lance Tucker'})"
                   class="flex cursor-pointer items-center space-x-2.5 px-4 py-2.5 font-inter hover:bg-slate-150 dark:hover:bg-navy-600"
                 >
                   <div class="avatar h-10 w-10">
@@ -1651,7 +1625,7 @@
               >
                 <a
                   href="#"
-                  x-tooltip="'All Chats'"
+                  data-tooltip="All Chats"
                   class="btn h-9 w-9 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                 >
                   <svg
@@ -1670,7 +1644,7 @@
                 </a>
                 <a
                   href="#"
-                  x-tooltip="'Users'"
+                  data-tooltip="Users"
                   class="btn h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
@@ -1688,10 +1662,9 @@
                     />
                   </svg>
                 </a>
-
                 <a
                   href="#"
-                  x-tooltip="'Groups'"
+                  data-tooltip="Groups"
                   class="btn h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
@@ -1711,7 +1684,7 @@
                 </a>
                 <a
                   href="#"
-                  x-tooltip="'Channels'"
+                  data-tooltip="Channels"
                   class="btn h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
@@ -1729,10 +1702,9 @@
                     />
                   </svg>
                 </a>
-
                 <a
                   href="#"
-                  x-tooltip="'More'"
+                  data-tooltip="More"
                   class="btn h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
@@ -1836,7 +1808,6 @@
                 ></div>
                 <div class="flex flex-col">
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-19.jpg',name:'Alfredo Elliott'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1851,7 +1822,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-20.jpg',name:'Konnor Guzman'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1863,7 +1833,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-18.jpg',name:'Travis Fuller'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1883,7 +1852,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-14.jpg',name:'Derrick Simmons'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1898,7 +1866,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-11.jpg',name:'Katrina West'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1913,7 +1880,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-13.jpg',name:'Corey Evans'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1925,7 +1891,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-10.jpg',name:'Anthony Jensen'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1937,7 +1902,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-12.jpg',name:'Lance Tucker'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1949,7 +1913,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-19.jpg',name:'Alfredo Elliott'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1964,7 +1927,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-20.jpg',name:'Konnor Guzman'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1976,7 +1938,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-18.jpg',name:'Travis Fuller'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -1995,7 +1956,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-14.jpg',name:'Derrick Simmons'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -2010,7 +1970,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-11.jpg',name:'Katrina West'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -2025,7 +1984,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-3',avatar_url:'images/avatar/avatar-13.jpg',name:'Corey Evans'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -2037,7 +1995,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-1',avatar_url:'images/avatar/avatar-10.jpg',name:'Anthony Jensen'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -2049,7 +2006,6 @@
                     </div>
                   </div>
                   <div
-                    @click="$dispatch('change-active-chat',{chatId:'chat-2',avatar_url:'images/avatar/avatar-12.jpg',name:'Lance Tucker'})"
                     class="flex cursor-pointer items-center justify-center py-2.5 hover:bg-slate-150 dark:hover:bg-navy-600"
                   >
                     <div class="avatar h-10 w-10">
@@ -2063,81 +2019,25 @@
                 </div>
               </div>
 
-              <div class="flex flex-col items-center justify-center py-3">
-                <div
-                  x-data="usePopper({placement:'right-start',offset:4})"
-                  @click.outside="isShowPopper && (isShowPopper = false)"
-                  class="inline-flex"
+              <div class="py-3">
+                <button
+                  class="btn h-10 w-10 rounded-full border border-slate-200 p-0 font-medium hover:bg-slate-150 focus:bg-slate-150 active:bg-slate-150/80 dark:border-navy-500 dark:hover:bg-navy-500 dark:focus:bg-navy-500 dark:active:bg-navy-500/90"
                 >
-                  <button
-                    x-ref="popperRef"
-                    @click="isShowPopper = !isShowPopper"
-                    class="btn h-10 w-10 rounded-full border border-slate-200 p-0 font-medium hover:bg-slate-150 focus:bg-slate-150 active:bg-slate-150/80 dark:border-navy-500 dark:hover:bg-navy-500 dark:focus:bg-navy-500 dark:active:bg-navy-500/90"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                      />
-                    </svg>
-                  </button>
-
-                  <template x-teleport="#x-teleport-target">
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
-                      <div
-                        class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-                      >
-                        <ul>
-                          <li>
-                            <a
-                              href="#"
-                              class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                              >Action</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                              >Another Action</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                              >Something else</a
-                            >
-                          </li>
-                        </ul>
-                        <div
-                          class="my-1 h-px bg-slate-150 dark:bg-navy-500"
-                        ></div>
-                        <ul>
-                          <li>
-                            <a
-                              href="#"
-                              class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                              >Separated Link</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </template>
-                </div>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -2145,37 +2045,20 @@
       </div>
 
       <!-- Right Sidebar -->
-      <div
-        x-show="$store.global.isRightSidebarExpanded"
-        @keydown.window.escape="$store.global.isRightSidebarExpanded = false"
-      >
+      <div id="right-sidebar" class="drawer drawer-right">
         <div
-          class="fixed inset-0 z-[150] bg-slate-900/60 transition-opacity duration-200"
-          @click="$store.global.isRightSidebarExpanded = false"
-          x-show="$store.global.isRightSidebarExpanded"
-          x-transition:enter="ease-out"
-          x-transition:enter-start="opacity-0"
-          x-transition:enter-end="opacity-100"
-          x-transition:leave="ease-in"
-          x-transition:leave-start="opacity-100"
-          x-transition:leave-end="opacity-0"
+          class="drawer-overlay fixed inset-0 z-[150] hidden bg-slate-900/60"
         ></div>
-        <div class="fixed right-0 top-0 z-[151] h-full w-full sm:w-80">
+        <div
+          class="drawer-content fixed right-0 top-0 z-[151] hidden h-full w-full sm:w-80"
+        >
           <div
-            x-data="{activeTab:'tabHome'}"
-            class="relative flex h-full w-full transform-gpu flex-col bg-white transition-transform duration-200 dark:bg-navy-750"
-            x-show="$store.global.isRightSidebarExpanded"
-            x-transition:enter="ease-out"
-            x-transition:enter-start="translate-x-full"
-            x-transition:enter-end="translate-x-0"
-            x-transition:leave="ease-in"
-            x-transition:leave-start="translate-x-0"
-            x-transition:leave-end="translate-x-full"
+            class="right-sidebar-tab-wrapper w-ful relative flex h-full flex-col bg-white dark:bg-navy-750"
           >
             <div class="flex items-center justify-between py-2 px-4">
               <p
-                x-show="activeTab === 'tabHome'"
-                class="flex shrink-0 items-center space-x-1.5"
+                data-header="#right-sidebar-tab-home"
+                class="right-sidebar-header flex shrink-0 items-center space-x-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2194,8 +2077,8 @@
                 <span class="text-xs">25 May, 2022</span>
               </p>
               <p
-                x-show="activeTab === 'tabProjects'"
-                class="flex shrink-0 items-center space-x-1.5"
+                data-header="#right-sidebar-tab-project"
+                class="right-sidebar-header flex shrink-0 items-center space-x-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2214,8 +2097,8 @@
                 <span class="text-xs">Projects</span>
               </p>
               <p
-                x-show="activeTab === 'tabActivity'"
-                class="flex shrink-0 items-center space-x-1.5"
+                data-header="#right-sidebar-tab-activity"
+                class="right-sidebar-header flex shrink-0 items-center space-x-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2233,9 +2116,8 @@
                 </svg>
                 <span class="text-xs">Activity</span>
               </p>
-
               <button
-                @click="$store.global.isRightSidebarExpanded=false"
+                data-close-drawer
                 class="btn -mr-1 h-6 w-6 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -2256,11 +2138,8 @@
             </div>
 
             <div
-              x-show="activeTab === 'tabHome'"
-              x-transition:enter="transition-all duration-500 easy-in-out"
-              x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-              x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-              class="is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
+              id="right-sidebar-tab-home"
+              class="tab-content tab-shift-up is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
             >
               <label class="relative flex px-3">
                 <input
@@ -2290,81 +2169,78 @@
                   Banking cards
                 </h2>
                 <div
-                  class="swiper mt-3 px-3"
-                  x-init="$nextTick(()=>new Swiper($el,{  slidesPerView: 'auto', spaceBetween: 16}))"
+                  class="scrollbar-sm mt-3 flex space-x-4 overflow-x-auto px-3"
                 >
-                  <div class="swiper-wrapper">
-                    <div
-                      class="swiper-slide relative flex h-28 w-48 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 p-3"
-                    >
-                      <div class="grow">
-                        <img
-                          class="h-3"
-                          src="images/payments/cc-visa-white.svg"
-                          alt="image"
-                        />
-                      </div>
-                      <div class="text-white">
-                        <p class="text-lg font-semibold tracking-wide">
-                          $2,139.22
-                        </p>
-                        <p class="mt-1 text-xs font-medium">
-                          **** **** **** 8945
-                        </p>
-                      </div>
-                      <div
-                        class="mask is-reuleaux-triangle absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
-                      ></div>
+                  <div
+                    class="relative flex h-28 w-48 shrink-0 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 p-3"
+                  >
+                    <div class="grow">
+                      <img
+                        class="h-3"
+                        src="images/payments/cc-visa-white.svg"
+                        alt="image"
+                      />
+                    </div>
+                    <div class="text-white">
+                      <p class="text-lg font-semibold tracking-wide">
+                        $2,139.22
+                      </p>
+                      <p class="mt-1 text-xs font-medium">
+                        **** **** **** 8945
+                      </p>
                     </div>
                     <div
-                      class="swiper-slide relative flex h-28 w-48 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 p-3"
-                    >
-                      <div class="grow">
-                        <img
-                          class="h-3"
-                          src="images/payments/cc-visa-white.svg"
-                          alt="image"
-                        />
-                      </div>
-                      <div class="text-white">
-                        <p class="text-lg font-semibold tracking-wide">
-                          $2,139.22
-                        </p>
-                        <p class="mt-1 text-xs font-medium">
-                          **** **** **** 8945
-                        </p>
-                      </div>
-                      <div
-                        class="mask is-diamond absolute bottom-0 right-0 -m-3 h-16 w-16 bg-white/20"
-                      ></div>
+                      class="mask is-reuleaux-triangle absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
+                    ></div>
+                  </div>
+                  <div
+                    class="relative flex h-28 w-48 shrink-0 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 p-3"
+                  >
+                    <div class="grow">
+                      <img
+                        class="h-3"
+                        src="images/payments/cc-visa-white.svg"
+                        alt="image"
+                      />
+                    </div>
+                    <div class="text-white">
+                      <p class="text-lg font-semibold tracking-wide">
+                        $2,139.22
+                      </p>
+                      <p class="mt-1 text-xs font-medium">
+                        **** **** **** 8945
+                      </p>
                     </div>
                     <div
-                      class="swiper-slide relative flex h-28 w-48 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-info to-info-focus p-3"
-                    >
-                      <div class="grow">
-                        <img
-                          class="h-3"
-                          src="images/payments/cc-visa-white.svg"
-                          alt="image"
-                        />
-                      </div>
-                      <div class="text-white">
-                        <p class="text-lg font-semibold tracking-wide">
-                          $2,139.22
-                        </p>
-                        <p class="mt-1 text-xs font-medium">
-                          **** **** **** 8945
-                        </p>
-                      </div>
-                      <div
-                        class="mask is-hexagon-2 absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
-                      ></div>
+                      class="mask is-diamond absolute bottom-0 right-0 -m-3 h-16 w-16 bg-white/20"
+                    ></div>
+                  </div>
+                  <div
+                    class="relative flex h-28 w-48 shrink-0 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-info to-info-focus p-3"
+                  >
+                    <div class="grow">
+                      <img
+                        class="h-3"
+                        src="images/payments/cc-visa-white.svg"
+                        alt="image"
+                      />
                     </div>
+                    <div class="text-white">
+                      <p class="text-lg font-semibold tracking-wide">
+                        $2,139.22
+                      </p>
+                      <p class="mt-1 text-xs font-medium">
+                        **** **** **** 8945
+                      </p>
+                    </div>
+                    <div
+                      class="mask is-hexagon-2 absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
+                    ></div>
                   </div>
                 </div>
               </div>
 
-              <div class="mt-4 px-3">
+              <div class="mt-2 px-3">
                 <h2
                   class="text-xs+ font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100"
                 >
@@ -2398,7 +2274,10 @@
                       Kanban
                     </p>
                   </a>
-                  <a href="https://lineone.piniastudio.com/dashboards-sales.html" class="w-12 text-center">
+                  <a
+                    href="dashboards-crm-analytics.html"
+                    class="w-12 text-center"
+                  >
                     <div class="avatar h-10 w-10">
                       <div
                         class="is-initial mask is-squircle bg-warning text-white"
@@ -2422,7 +2301,7 @@
                     <p
                       class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
                     >
-                      Sales
+                      Analytics
                     </p>
                   </a>
                   <a href="apps-chat.html" class="w-12 text-center">
@@ -2667,12 +2546,6 @@
                       </div>
                     </div>
 
-                    <div class="ax-transparent-gridline">
-                      <div
-                        x-init="$nextTick(() => { $el._x_chart = new ApexCharts($el,pages.charts.stockMarket1); $el._x_chart.render() });"
-                      ></div>
-                    </div>
-
                     <div class="mt-2 flex items-center justify-between">
                       <p
                         class="font-medium tracking-wide text-slate-700 dark:text-navy-100"
@@ -2700,12 +2573,6 @@
                         </h2>
                         <p class="text-xs">Solana</p>
                       </div>
-                    </div>
-
-                    <div class="ax-transparent-gridline">
-                      <div
-                        x-init="$nextTick(() => { $el._x_chart = new ApexCharts($el,pages.charts.stockMarket2); $el._x_chart.render() });"
-                      ></div>
                     </div>
 
                     <div class="mt-2 flex items-center justify-between">
@@ -2966,32 +2833,6 @@
               </div>
 
               <div class="mt-3 px-3">
-                <h2
-                  class="text-xs+ font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100"
-                >
-                  Settings
-                </h2>
-                <div class="mt-2 flex flex-col space-y-2">
-                  <label class="inline-flex items-center space-x-2">
-                    <input
-                      x-model="$store.global.isDarkModeEnabled"
-                      class="form-switch h-5 w-10 rounded-lg bg-slate-300 before:rounded-md before:bg-slate-50 checked:bg-slate-500 checked:before:bg-white dark:bg-navy-900 dark:before:bg-navy-300 dark:checked:bg-navy-400 dark:checked:before:bg-white"
-                      type="checkbox"
-                    />
-                    <span>Dark Mode</span>
-                  </label>
-                  <label class="inline-flex items-center space-x-2">
-                    <input
-                      x-model="$store.global.isMonochromeModeEnabled"
-                      class="form-switch h-5 w-10 rounded-lg bg-slate-300 before:rounded-md before:bg-slate-50 checked:bg-slate-500 checked:before:bg-white dark:bg-navy-900 dark:before:bg-navy-300 dark:checked:bg-navy-400 dark:checked:before:bg-white"
-                      type="checkbox"
-                    />
-                    <span>Monochrome Mode</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="mt-3 px-3">
                 <div class="rounded-lg bg-slate-100 p-3 dark:bg-navy-600">
                   <div class="flex items-center justify-between">
                     <p>
@@ -3017,11 +2858,8 @@
             </div>
 
             <div
-              x-show="activeTab === 'tabProjects'"
-              x-transition:enter="transition-all duration-500 easy-in-out"
-              x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-              x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-              class="is-scrollbar-hidden overflow-y-auto overscroll-contain px-3 pt-1"
+              id="right-sidebar-tab-project"
+              class="tab-content tab-shift-up is-scrollbar-hidden overflow-y-auto overscroll-contain px-3 pt-1"
             >
               <div class="grid grid-cols-2 gap-3">
                 <div class="rounded-lg bg-slate-100 p-3 dark:bg-navy-600">
@@ -3418,11 +3256,8 @@
             </div>
 
             <div
-              x-show="activeTab === 'tabActivity'"
-              x-transition:enter="transition-all duration-500 easy-in-out"
-              x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-              x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-              class="is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
+              id="right-sidebar-tab-activity"
+              class="tab-content tab-shift-up is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
             >
               <div
                 class="mx-3 flex flex-col items-center rounded-lg bg-slate-100 py-3 px-8 dark:bg-navy-600"
@@ -3771,12 +3606,12 @@
                 class="pointer-events-auto mx-auto flex space-x-1 rounded-full border border-slate-150 bg-white px-4 py-0.5 shadow-lg dark:border-navy-700 dark:bg-navy-900"
               >
                 <button
-                  @click="activeTab = 'tabHome'"
-                  :class="activeTab === 'tabHome' && 'text-primary dark:text-accent'"
-                  class="btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  data-target="#right-sidebar-tab-home"
+                  data-active-class="text-primary dark:text-accent [&_svg:last-child]:hidden"
+                  data-default-class="[&_svg:first-child]:hidden"
+                  class="tab btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
-                    x-show="activeTab === 'tabHome'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     viewBox="0 0 20 20"
@@ -3787,7 +3622,6 @@
                     />
                   </svg>
                   <svg
-                    x-show="activeTab !== 'tabHome'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     fill="none"
@@ -3803,12 +3637,12 @@
                   </svg>
                 </button>
                 <button
-                  @click="activeTab = 'tabProjects'"
-                  :class="activeTab === 'tabProjects' && 'text-primary dark:text-accent'"
-                  class="btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  data-target="#right-sidebar-tab-project"
+                  data-active-class="text-primary dark:text-accent [&_svg:last-child]:hidden"
+                  data-default-class="[&_svg:first-child]:hidden"
+                  class="tab btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
-                    x-show="activeTab === 'tabProjects'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     viewBox="0 0 20 20"
@@ -3822,10 +3656,9 @@
                   </svg>
 
                   <svg
-                    x-show="activeTab !== 'tabProjects'"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 shrink-0"
                     fill="none"
+                    class="h-5 w-5 shrink-0"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     stroke-width="1.5"
@@ -3838,12 +3671,12 @@
                   </svg>
                 </button>
                 <button
-                  @click="activeTab = 'tabActivity'"
-                  :class="activeTab === 'tabActivity' && 'text-primary dark:text-accent'"
-                  class="btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  data-target="#right-sidebar-tab-activity"
+                  data-active-class="text-primary dark:text-accent [&_svg:last-child]:hidden"
+                  data-default-class="[&_svg:first-child]:hidden"
+                  class="tab btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
-                    x-show="activeTab ===  'tabActivity'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     viewBox="0 0 20 20"
@@ -3856,7 +3689,6 @@
                     />
                   </svg>
                   <svg
-                    x-show="activeTab !==  'tabActivity'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     fill="none"
@@ -3878,22 +3710,14 @@
       </div>
 
       <!-- Main Content Wrapper -->
-      <main
-        x-data="{isShowChatInfo : !$store.breakpoints.mdAndDown ,activeChat:{chatId:'chat-1',name:'Alfredo Elliott',avatar_url:'images/avatar/avatar-19.jpg'}}"
-        x-effect="$store.breakpoints.mdAndDown === true && (isShowChatInfo = false)"
-        class="main-content h-100vh chat-app mt-0 flex w-full flex-col"
-        :class="isShowChatInfo && 'lg:mr-80'"
-        @change-active-chat.window="activeChat=$event.detail"
-      >
+      <main class="main-content h-100vh chat-app mt-0 flex w-full flex-col">
         <div
           class="chat-header relative z-10 flex h-[61px] w-full shrink-0 items-center justify-between border-b border-slate-150 bg-white px-[calc(var(--margin-x)-.5rem)] shadow-sm transition-[padding,width] duration-[.25s] dark:border-navy-700 dark:bg-navy-800"
         >
           <div class="flex items-center space-x-5">
             <div class="ml-1 h-7 w-7">
               <button
-                class="menu-toggle ml-0.5 flex h-7 w-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
-                :class="$store.global.isSidebarExpanded && 'active'"
-                @click="$store.global.isSidebarExpanded = !$store.global.isSidebarExpanded"
+                class="sidebar-toggle ml-0.5 flex h-7 w-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
               >
                 <span></span>
                 <span></span>
@@ -3901,22 +3725,23 @@
               </button>
             </div>
             <div
-              @click="isShowChatInfo = true"
+              data-toggle="drawer"
+              data-target="#chat-detail"
               class="flex cursor-pointer items-center space-x-4 font-inter"
             >
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
               <div>
                 <p
                   class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100"
-                  x-text="activeChat.name"
-                ></p>
+                >
+                  Konnor Guzman
+                </p>
                 <p class="mt-0.5 text-xs">Last seen recently</p>
               </div>
             </div>
@@ -3959,7 +3784,9 @@
               </svg>
             </button>
             <button
-              @click="isShowChatInfo = !isShowChatInfo"
+              data-toggle="drawer"
+              data-target="#chat-detail"
+              id="chat-detail-toggle"
               :class="isShowChatInfo ? 'text-primary dark:text-accent-light' : 'text-slate-500 dark:text-navy-200'"
               class="btn hidden h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex"
             >
@@ -3978,15 +3805,9 @@
                 />
               </svg>
             </button>
-            <div
-              x-data="usePopper({placement:'bottom-end',offset:4})"
-              @click.outside="isShowPopper && (isShowPopper = false)"
-              class="inline-flex"
-            >
+            <div id="chat-menu" class="inline-flex">
               <button
-                x-ref="popperRef"
-                @click="isShowPopper = !isShowPopper"
-                class="btn h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                class="popper-ref btn h-9 w-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -4004,11 +3825,7 @@
                 </svg>
               </button>
 
-              <div
-                x-ref="popperRoot"
-                class="popper-root"
-                :class="isShowPopper && 'show'"
-              >
+              <div class="popper-root">
                 <div
                   class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                 >
@@ -4120,16 +3937,9 @@
         </div>
 
         <div
-          :class="$store.breakpoints.smAndUp && 'scrollbar-sm'"
-          class="grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]"
+          class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]"
         >
-          <div
-            x-show="activeChat.chatId === 'chat-1'"
-            x-transition:enter="transition-all duration-500 easy-in-out"
-            x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-            x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-            class="space-y-5"
-          >
+          <div class="space-y-5">
             <div class="mx-4 flex items-center space-x-3">
               <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
               <p>Sunday</p>
@@ -4140,8 +3950,7 @@
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
@@ -4198,8 +4007,7 @@
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
@@ -4440,14 +4248,7 @@
                 />
               </div>
             </div>
-          </div>
-          <div
-            x-show="activeChat.chatId === 'chat-2'"
-            x-transition:enter="transition-all duration-500 easy-in-out"
-            x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-            x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-            class="space-y-5"
-          >
+
             <div class="mx-4 flex items-center space-x-3">
               <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
               <p>Yesterday</p>
@@ -4458,8 +4259,7 @@
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
@@ -4511,14 +4311,7 @@
                 />
               </div>
             </div>
-          </div>
-          <div
-            x-show="activeChat.chatId === 'chat-3'"
-            x-transition:enter="transition-all duration-500 easy-in-out"
-            x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-            x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-            class="space-y-5"
-          >
+
             <div class="mx-4 flex items-center space-x-3">
               <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
               <p>Sunday</p>
@@ -4529,8 +4322,7 @@
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
@@ -4587,8 +4379,7 @@
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
@@ -4650,8 +4441,7 @@
               <div class="avatar">
                 <img
                   class="rounded-full"
-                  src="https://lineone.piniastudio.com/null"
-                  :src="activeChat.avatar_url"
+                  src="images/avatar/avatar-19.jpg"
                   alt="avatar"
                 />
               </div>
@@ -4776,423 +4566,382 @@
           </div>
         </div>
 
-        <template x-teleport="#x-teleport-target">
+        <div id="chat-detail" class="drawer drawer-right">
           <div
-            x-data="{
-            get showDrawer() {return $data.isShowChatInfo;},
-            set showDrawer(val) {$data.isShowChatInfo = val;},
-          }"
-            x-show="showDrawer"
-            @keydown.window.escape="showDrawer = false"
+            class="drawer-content fixed right-0 top-0 z-[101] hidden h-full w-full sm:w-80"
           >
             <div
-              class="fixed inset-0 z-[100] bg-slate-900/60 transition-opacity duration-200"
-              @click="showDrawer = false"
-              x-show="showDrawer && $store.breakpoints.mdAndDown"
-              x-transition:enter="ease-out"
-              x-transition:enter-start="opacity-0"
-              x-transition:enter-end="opacity-100"
-              x-transition:leave="ease-in"
-              x-transition:leave-start="opacity-100"
-              x-transition:leave-end="opacity-0"
-            ></div>
-            <div class="fixed right-0 top-0 z-[101] h-full w-full sm:w-80">
-              <div
-                class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750"
-                x-show="showDrawer"
-                x-transition:enter="ease-out transform-gpu"
-                x-transition:enter-start="translate-x-full"
-                x-transition:enter-end="translate-x-0"
-                x-transition:leave="ease-in transform-gpu"
-                x-transition:leave-start="translate-x-0"
-                x-transition:leave-end="translate-x-full"
-              >
-                <div class="flex h-[60px] items-center justify-between p-4">
-                  <h3
-                    class="text-base font-medium text-slate-700 dark:text-navy-100"
-                  >
-                    Chat Info
-                  </h3>
-                  <div class="-mr-1.5 flex space-x-1">
-                    <button
-                      @click="$store.global.isRightSidebarExpanded = true"
-                      class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5.5 w-5.5 text-slate-500 dark:text-navy-100"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                        />
-                      </svg>
-                    </button>
-
-                    <button
-                      @click="$store.global.isDarkModeEnabled = !$store.global.isDarkModeEnabled"
-                      class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                        x-show="$store.global.isDarkModeEnabled"
-                        x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
-                        x-transition:enter-start="scale-75"
-                        x-transition:enter-end="scale-100 static"
-                        class="h-6 w-6 text-amber-400"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x-show="!$store.global.isDarkModeEnabled"
-                        x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
-                        x-transition:enter-start="scale-75"
-                        x-transition:enter-end="scale-100 static"
-                        class="h-6 w-6 text-amber-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
-
-                    <button
-                      @click="showDrawer=false"
-                      class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="mt-5 flex flex-col items-center">
-                  <div class="avatar h-20 w-20">
-                    <img
-                      class="rounded-full"
-                      src="https://lineone.piniastudio.com/null"
-                      :src="activeChat.avatar_url"
-                      alt="avatar"
-                    />
-                  </div>
-                  <h3
-                    x-text="activeChat.name"
-                    class="mt-2 text-lg font-medium text-slate-700 dark:text-navy-100"
-                  ></h3>
-                  <p>Frontend Developer</p>
-                  <div class="mt-2 flex space-x-1.5">
-                    <button
-                      class="btn h-10 w-10 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      class="btn h-10 w-10 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      class="btn h-10 w-10 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  x-data="{activeTab:'tabImages'}"
-                  class="tabs mt-6 flex flex-col"
+              class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750"
+            >
+              <div class="flex h-[60px] items-center justify-between p-4">
+                <h3
+                  class="text-base font-medium text-slate-700 dark:text-navy-100"
                 >
-                  <div class="is-scrollbar-hidden overflow-x-auto px-4">
-                    <div class="tabs-list flex">
-                      <button
-                        @click="activeTab = 'tabImages'"
-                        :class="activeTab === 'tabImages' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                        class="btn shrink-0 rounded-none border-b-2 px-3 py-2 font-medium"
-                      >
-                        Images
-                      </button>
-                      <button
-                        @click="activeTab = 'tabFiles'"
-                        :class="activeTab === 'tabFiles' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                        class="btn shrink-0 rounded-none border-b-2 px-3 py-2 font-medium"
-                      >
-                        Files
-                      </button>
+                  Chat Info
+                </h3>
+                <div class="-mr-1.5 flex space-x-1">
+                  <button
+                    data-toggle="drawer"
+                    data-target="#right-sidebar"
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5.5 w-5.5 text-slate-500 dark:text-navy-100"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    class="darkmode-toggle btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="darkmode-moon h-6 w-6 text-amber-400"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="darkmode-sun h-6 w-6 text-amber-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    data-toggle="drawer"
+                    data-target="#chat-detail"
+                    class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="mt-5 flex flex-col items-center">
+                <div class="avatar h-20 w-20">
+                  <img
+                    class="rounded-full"
+                    src="images/avatar/avatar-19.jpg"
+                    alt="avatar"
+                  />
+                </div>
+                <h3
+                  class="mt-2 text-lg font-medium text-slate-700 dark:text-navy-100"
+                >
+                  Konnor Guzman
+                </h3>
+                <p>Frontend Developer</p>
+                <div class="mt-2 flex space-x-1.5">
+                  <button
+                    class="btn h-10 w-10 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="btn h-10 w-10 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="btn h-10 w-10 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div id="tab-media" class="tabs mt-6 flex flex-col">
+                <div class="is-scrollbar-hidden overflow-x-auto px-4">
+                  <div class="tabs-list flex">
+                    <button
+                      class="tab btn shrink-0 rounded-none border-b-2 px-3 py-2 font-medium"
+                      data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                      data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                      data-target="#tab-media-images"
+                    >
+                      Images
+                    </button>
+                    <button
+                      class="tab btn shrink-0 rounded-none border-b-2 px-3 py-2 font-medium"
+                      data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                      data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                      data-target="#tab-media-files"
+                    >
+                      Files
+                    </button>
+                  </div>
+                </div>
+                <div class="px-4 pt-4">
+                  <div class="tab-content tab-shift-left" id="tab-media-images">
+                    <div class="grid grid-cols-4 gap-2">
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/foods/food-4.jpg"
+                        alt="image"
+                      />
+
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-2.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/foods/food-11.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/foods/food-9.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-3.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-4.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/foods/food-7.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-5.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-6.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-7.jpg"
+                        alt="image"
+                      />
+
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-8.jpg"
+                        alt="image"
+                      />
+                      <img
+                        class="aspect-square rounded-lg object-cover object-center"
+                        src="images/object/object-9.jpg"
+                        alt="image"
+                      />
                     </div>
                   </div>
-                  <div class="tab-content px-4 pt-4">
-                    <div
-                      x-show="activeTab === 'tabImages'"
-                      x-transition:enter="transition-all duration-500 easy-in-out"
-                      x-transition:enter-start="opacity-0 [transform:translate3d(1rem,0,0)]"
-                      x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-                    >
-                      <div class="grid grid-cols-4 gap-2">
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/foods/food-4.jpg"
-                          alt="image"
-                        />
+                  <div class="tab-content tab-shift-left" id="tab-media-files">
+                    <div class="flex flex-col space-y-3.5">
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="mask is-squircle flex h-11 w-11 items-center justify-center bg-secondary text-white"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p
+                            class="font-medium text-slate-700 dark:text-navy-100"
+                          >
+                            Slow Music
+                          </p>
+                          <div
+                            class="flex text-xs text-slate-400 dark:text-navy-300"
+                          >
+                            <span>03:12</span>
+                            <div
+                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
+                            ></div>
 
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-2.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/foods/food-11.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/foods/food-9.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-3.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-4.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/foods/food-7.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-5.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-6.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-7.jpg"
-                          alt="image"
-                        />
-
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-8.jpg"
-                          alt="image"
-                        />
-                        <img
-                          class="aspect-square rounded-lg object-cover object-center"
-                          src="images/object/object-9.jpg"
-                          alt="image"
-                        />
+                            <span>8.32 MB</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      x-show="activeTab === 'tabFiles'"
-                      x-transition:enter="transition-all duration-500 easy-in-out"
-                      x-transition:enter-start="opacity-0 [transform:translate3d(1rem,0,0)]"
-                      x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-                    >
-                      <div class="flex flex-col space-y-3.5">
-                        <div class="flex items-center space-x-3">
-                          <div
-                            class="mask is-squircle flex h-11 w-11 items-center justify-center bg-secondary text-white"
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="mask is-squircle flex h-11 w-11 items-center justify-center bg-info text-white"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-                              />
-                            </svg>
-                          </div>
-                          <div>
-                            <p
-                              class="font-medium text-slate-700 dark:text-navy-100"
-                            >
-                              Slow Music
-                            </p>
-                            <div
-                              class="flex text-xs text-slate-400 dark:text-navy-300"
-                            >
-                              <span>03:12</span>
-                              <div
-                                class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                              ></div>
-
-                              <span>8.32 MB</span>
-                            </div>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p
+                            class="font-medium text-slate-700 dark:text-navy-100"
+                          >
+                            Final.fig
+                          </p>
+                          <div
+                            class="flex text-xs text-slate-400 dark:text-navy-300"
+                          >
+                            <span>45 MB</span>
                           </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                          <div
-                            class="mask is-squircle flex h-11 w-11 items-center justify-center bg-info text-white"
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="mask is-squircle flex h-11 w-11 items-center justify-center bg-warning text-white"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                              />
-                            </svg>
-                          </div>
-                          <div>
-                            <p
-                              class="font-medium text-slate-700 dark:text-navy-100"
-                            >
-                              Final.fig
-                            </p>
-                            <div
-                              class="flex text-xs text-slate-400 dark:text-navy-300"
-                            >
-                              <span>45 MB</span>
-                            </div>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p
+                            class="font-medium text-slate-700 dark:text-navy-100"
+                          >
+                            Report.docx
+                          </p>
+                          <div
+                            class="flex text-xs text-slate-400 dark:text-navy-300"
+                          >
+                            <span>3.5 MB</span>
                           </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                          <div
-                            class="mask is-squircle flex h-11 w-11 items-center justify-center bg-warning text-white"
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="mask is-squircle flex h-11 w-11 items-center justify-center bg-success text-white"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                              />
-                            </svg>
-                          </div>
-                          <div>
-                            <p
-                              class="font-medium text-slate-700 dark:text-navy-100"
-                            >
-                              Report.docx
-                            </p>
-                            <div
-                              class="flex text-xs text-slate-400 dark:text-navy-300"
-                            >
-                              <span>3.5 MB</span>
-                            </div>
-                          </div>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            />
+                          </svg>
                         </div>
-                        <div class="flex items-center space-x-3">
-                          <div
-                            class="mask is-squircle flex h-11 w-11 items-center justify-center bg-success text-white"
+                        <div>
+                          <p
+                            class="font-medium text-slate-700 dark:text-navy-100"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                              />
-                            </svg>
-                          </div>
-                          <div>
-                            <p
-                              class="font-medium text-slate-700 dark:text-navy-100"
-                            >
-                              TheBook.pdf
-                            </p>
-                            <div
-                              class="flex text-xs text-slate-400 dark:text-navy-300"
-                            >
-                              <span>14 MB</span>
-                            </div>
+                            TheBook.pdf
+                          </p>
+                          <div
+                            class="flex text-xs text-slate-400 dark:text-navy-300"
+                          >
+                            <span>14 MB</span>
                           </div>
                         </div>
                       </div>
@@ -5202,16 +4951,8 @@
               </div>
             </div>
           </div>
-        </template>
+        </div>
       </main>
     </div>
-    <!-- 
-        This is a place for Alpine.js Teleport feature 
-        @see https://alpinejs.dev/directives/teleport
-      -->
-    <div id="x-teleport-target"></div>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => Alpine.start());
-    </script>
   </body>
 </html>

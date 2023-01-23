@@ -9,7 +9,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
 
-    <title>Lineone - Blog Grid v1</title>
+    <title>Lineone - Blog Card v1</title>
     <link rel="icon" type="image/png" href="images/favicon.png" />
 
     <!-- CSS Assets -->
@@ -17,6 +17,9 @@
 
     <!-- Javascript Assets -->
     <script src="js/app.js" defer></script>
+
+    <!-- Special script for current page -->
+    <script src="js/pages/pages-card-blog-1.js" defer></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,12 +32,12 @@
       /**
        * THIS SCRIPT REQUIRED FOR PREVENT FLICKERING IN SOME BROWSERS
        */
-      localStorage.getItem("_x_darkMode_on") === "true" &&
+      localStorage.getItem("dark-mode") === "dark" &&
         document.documentElement.classList.add("dark");
     </script>
   </head>
 
-  <body x-data class="is-header-blur" x-bind="$store.global.documentBody">
+  <body class="is-header-blur">
     <!-- App preloader-->
     <div
       class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
@@ -45,8 +48,7 @@
     <!-- Page Wrapper -->
     <div
       id="root"
-      class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900"
-      x-cloak
+      class="min-h-100vh cloak flex grow bg-slate-50 dark:bg-navy-900"
     >
       <!-- Sidebar -->
       <div class="sidebar print:hidden">
@@ -73,8 +75,9 @@
               <!-- Dashobards -->
               <a
                 href="dashboards-crm-analytics.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Dashboards'"
+                data-tooltip="Dashboards"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -105,8 +108,9 @@
               <!-- Apps -->
               <a
                 href="apps-list.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Applications'"
+                data-tooltip="Applications"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -148,8 +152,9 @@
               <!-- Pages And Layouts -->
               <a
                 href="pages-card-user-1.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"
-                x-tooltip.placement.right="'Pages & Layouts'"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 dark:text-accent-light dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"
+                data-tooltip="Pages & Layouts"
+                data-placement="right"
               >
                 <svg
                   class="h-7 w-7"
@@ -181,9 +186,10 @@
 
               <!-- Forms -->
               <a
-                href="form-input-text.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Forms'"
+                href="forms-input-text.html"
+                data-tooltip="Forms"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -211,8 +217,9 @@
               <!-- Components -->
               <a
                 href="components-accordion.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Components'"
+                data-tooltip="Components"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -240,8 +247,9 @@
               <!-- Elements -->
               <a
                 href="elements-avatar.html"
-                class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                x-tooltip.placement.right="'Elements'"
+                data-tooltip="Elements"
+                data-placement="right"
+                class="tooltip-main-sidebar flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
                   class="h-7 w-7"
@@ -266,7 +274,7 @@
             <div class="flex flex-col items-center space-y-3 py-3">
               <!-- Settings -->
               <a
-                href="form-layout-5.html"
+                href="forms-layout-5.html"
                 class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -288,16 +296,8 @@
               </a>
 
               <!-- Profile -->
-              <div
-                x-data="usePopper({placement:'right-end',offset:12})"
-                @click.outside="isShowPopper && (isShowPopper = false)"
-                class="flex"
-              >
-                <button
-                  @click="isShowPopper = !isShowPopper"
-                  x-ref="popperRef"
-                  class="avatar h-12 w-12"
-                >
+              <div id="profile-wrapper" class="flex">
+                <button id="profile-ref" class="avatar h-12 w-12">
                   <img
                     class="rounded-full"
                     src="images/avatar/avatar-12.jpg"
@@ -307,12 +307,7 @@
                     class="absolute right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-success dark:border-navy-700"
                   ></span>
                 </button>
-
-                <div
-                  :class="isShowPopper && 'show'"
-                  class="popper-root fixed"
-                  x-ref="popperRoot"
-                >
+                <div id="profile-box" class="popper-root fixed">
                   <div
                     class="popper-box w-64 rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-600 dark:bg-navy-700"
                   >
@@ -568,8 +563,7 @@
                 Layouts
               </p>
               <button
-                @click="$store.global.isSidebarExpanded = false"
-                class="btn h-7 w-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden"
+                class="sidebar-close btn h-7 w-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -590,21 +584,18 @@
 
             <!-- Sidebar Panel Body -->
             <div
-              x-data="{expandedItem:'menu-item-3'}"
-              class="h-[calc(100%-4.5rem)] overflow-x-hidden pb-6"
-              x-init="$el._x_simplebar = new SimpleBar($el);"
+              class="nav-wrapper h-[calc(100%-4.5rem)] overflow-x-hidden pb-6"
+              data-simplebar
             >
               <ul class="flex flex-1 flex-col px-4 font-inter">
-                <li x-data="accordionItem('menu-item-1')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Onboarding</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -616,53 +607,50 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-onboarding-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
                             class="h-1.5 w-1.5 rounded-full border border-current opacity-40"
                           ></div>
-                          <span>Onboarding 1</span>
+                          <span>Onboarding v1</span>
                         </div>
                       </a>
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-onboarding-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
                             class="h-1.5 w-1.5 rounded-full border border-current opacity-40"
                           ></div>
-                          <span>Onboarding 2</span>
+                          <span>Onboarding v2</span>
                         </div>
                       </a>
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-2')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>User Card</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -674,16 +662,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -695,10 +683,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -710,10 +698,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-3.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -725,10 +713,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-4.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -740,10 +728,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-5.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -755,10 +743,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-6.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -770,10 +758,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-user-7.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -785,17 +773,14 @@
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-3')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Blog Card</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -807,16 +792,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -828,10 +813,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -843,10 +828,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-3.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -858,10 +843,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-4.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -873,10 +858,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-5.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -888,10 +873,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-6.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -903,10 +888,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-7.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -918,10 +903,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-card-blog-8.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -933,32 +918,29 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-blog-details.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
                             class="h-1.5 w-1.5 rounded-full border border-current opacity-40"
                           ></div>
-                          <span>Blog Detail</span>
+                          <span>Blog Details</span>
                         </div>
                       </a>
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-4')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Help</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -970,16 +952,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-help-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -991,10 +973,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-help-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1006,10 +988,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-help-3.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1021,17 +1003,14 @@
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-5')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Price List</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -1043,16 +1022,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-price-list-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1064,10 +1043,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-price-list-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1079,10 +1058,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-price-list-3.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1094,17 +1073,14 @@
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-6')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Invoice</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -1116,16 +1092,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-invoice-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1137,10 +1113,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-invoice-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1153,20 +1129,16 @@
                   </ul>
                 </li>
               </ul>
-
               <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
-
               <ul class="flex flex-1 flex-col px-4 font-inter">
-                <li x-data="accordionItem('menu-item-7')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Sign In</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -1178,16 +1150,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
-                        href="pages-login-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        href="pages-sign-in-1.html"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1199,10 +1171,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
-                        href="pages-login-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        href="pages-sign-in-2.html"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1214,17 +1186,14 @@
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-8')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Sign Up</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -1236,16 +1205,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
-                        href="pages-singup-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        href="pages-sign-up-1.html"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1257,10 +1226,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
-                        href="pages-singup-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        href="pages-sign-up-2.html"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1273,20 +1242,16 @@
                   </ul>
                 </li>
               </ul>
-
               <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
-
               <ul class="flex flex-1 flex-col px-4 font-inter">
-                <li x-data="accordionItem('menu-item-9')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Error</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -1298,16 +1263,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-404-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1319,10 +1284,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-404-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1334,10 +1299,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-404-3.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1349,10 +1314,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-404-4.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1364,10 +1329,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-401.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1379,10 +1344,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-429.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1394,10 +1359,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-error-500.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1409,17 +1374,14 @@
                     </li>
                   </ul>
                 </li>
-
-                <li x-data="accordionItem('menu-item-10')">
-                  <a
-                    :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'"
-                    @click="expanded = !expanded"
-                    class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out"
-                    href="javascript:void(0);"
+                <li
+                  class="ac nav-parent [&.is-active_svg]:rotate-90 [&.is-active_.ac-trigger]:font-semibold [&.is-active_.ac-trigger]:text-slate-800 dark:[&.is-active_.ac-trigger]:text-navy-50"
+                >
+                  <button
+                    class="ac-trigger flex w-full items-center justify-between py-2 text-xs+ tracking-wide text-slate-600 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
                   >
                     <span>Starter</span>
                     <svg
-                      :class="expanded && 'rotate-90'"
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 text-slate-400 transition-transform ease-in-out"
                       fill="none"
@@ -1431,16 +1393,16 @@
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 5l7 7-7 7"
-                      />
+                      ></path>
                     </svg>
-                  </a>
-                  <ul x-collapse x-show="expanded">
+                  </button>
+                  <ul class="ac-panel">
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-starter-1.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1452,10 +1414,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-starter-2.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1467,10 +1429,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-starter-3.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1482,10 +1444,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-starter-4.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1497,10 +1459,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-starter-5.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1512,10 +1474,10 @@
                     </li>
                     <li>
                       <a
-                        x-data="navLink"
                         href="pages-starter-6.html"
-                        :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'"
-                        class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        class="nav-link flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4"
+                        data-default-class="text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                        data-active-class="font-medium text-primary dark:text-accent-light"
                       >
                         <div class="flex items-center space-x-2">
                           <div
@@ -1544,9 +1506,7 @@
             <!-- Left: Sidebar Toggle Button -->
             <div class="h-7 w-7">
               <button
-                class="menu-toggle ml-0.5 flex h-7 w-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
-                :class="$store.global.isSidebarExpanded && 'active'"
-                @click="$store.global.isSidebarExpanded = !$store.global.isSidebarExpanded"
+                class="sidebar-toggle ml-0.5 flex h-7 w-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
               >
                 <span></span>
                 <span></span>
@@ -1558,8 +1518,7 @@
             <div class="-mr-1.5 flex items-center space-x-2">
               <!-- Mobile Search Toggle -->
               <button
-                @click="$store.global.isSearchbarActive = !$store.global.isSearchbarActive"
-                class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden"
+                class="mobile-searchbar-show btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1578,587 +1537,579 @@
               </button>
 
               <!-- Main Searchbar -->
-              <template x-if="$store.breakpoints.smAndUp">
-                <div
-                  class="flex"
-                  x-data="usePopper({placement:'bottom-end',offset:12})"
-                  @click.outside="isShowPopper && (isShowPopper = false)"
-                >
-                  <div class="relative mr-4 flex h-8">
-                    <input
-                      placeholder="Search here..."
-                      class="form-input peer h-full rounded-full bg-slate-150 px-4 pl-9 text-xs+ text-slate-800 ring-primary/50 hover:bg-slate-200 focus:ring dark:bg-navy-900/90 dark:text-navy-100 dark:placeholder-navy-300 dark:ring-accent/50 dark:hover:bg-navy-900 dark:focus:bg-navy-900"
-                      :class="isShowPopper ? 'w-80' : 'w-60'"
-                      @focus="isShowPopper= true"
-                      type="text"
-                      x-ref="popperRef"
-                    />
-                    <div
-                      class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4.5 w-4.5 transition-colors duration-200"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M3.316 13.781l.73-.171-.73.171zm0-5.457l.73.171-.73-.171zm15.473 0l.73-.171-.73.171zm0 5.457l.73.171-.73-.171zm-5.008 5.008l-.171-.73.171.73zm-5.457 0l-.171.73.171-.73zm0-15.473l-.171-.73.171.73zm5.457 0l.171-.73-.171.73zM20.47 21.53a.75.75 0 101.06-1.06l-1.06 1.06zM4.046 13.61a11.198 11.198 0 010-5.115l-1.46-.342a12.698 12.698 0 000 5.8l1.46-.343zm14.013-5.115a11.196 11.196 0 010 5.115l1.46.342a12.698 12.698 0 000-5.8l-1.46.343zm-4.45 9.564a11.196 11.196 0 01-5.114 0l-.342 1.46c1.907.448 3.892.448 5.8 0l-.343-1.46zM8.496 4.046a11.198 11.198 0 015.115 0l.342-1.46a12.698 12.698 0 00-5.8 0l.343 1.46zm0 14.013a5.97 5.97 0 01-4.45-4.45l-1.46.343a7.47 7.47 0 005.568 5.568l.342-1.46zm5.457 1.46a7.47 7.47 0 005.568-5.567l-1.46-.342a5.97 5.97 0 01-4.45 4.45l.342 1.46zM13.61 4.046a5.97 5.97 0 014.45 4.45l1.46-.343a7.47 7.47 0 00-5.568-5.567l-.342 1.46zm-5.457-1.46a7.47 7.47 0 00-5.567 5.567l1.46.342a5.97 5.97 0 014.45-4.45l-.343-1.46zm8.652 15.28l3.665 3.664 1.06-1.06-3.665-3.665-1.06 1.06z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+              <div id="searchbar-wrapper" class="hidden sm:flex">
+                <div class="relative mr-4 flex h-8">
+                  <input
+                    id="searchbar-ref"
+                    placeholder="Search here..."
+                    class="form-input peer h-full w-60 rounded-full bg-slate-150 px-4 pl-9 text-xs+ text-slate-800 ring-primary/50 hover:bg-slate-200 focus:ring dark:bg-navy-900/90 dark:text-navy-100 dark:placeholder-navy-300 dark:ring-accent/50 dark:hover:bg-navy-900 dark:focus:bg-navy-900"
+                    type="text"
+                  />
                   <div
-                    :class="isShowPopper && 'show'"
-                    class="popper-root"
-                    x-ref="popperRoot"
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4.5 w-4.5 transition-colors duration-200"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3.316 13.781l.73-.171-.73.171zm0-5.457l.73.171-.73-.171zm15.473 0l.73-.171-.73.171zm0 5.457l.73.171-.73-.171zm-5.008 5.008l-.171-.73.171.73zm-5.457 0l-.171.73.171-.73zm0-15.473l-.171-.73.171.73zm5.457 0l.171-.73-.171.73zM20.47 21.53a.75.75 0 101.06-1.06l-1.06 1.06zM4.046 13.61a11.198 11.198 0 010-5.115l-1.46-.342a12.698 12.698 0 000 5.8l1.46-.343zm14.013-5.115a11.196 11.196 0 010 5.115l1.46.342a12.698 12.698 0 000-5.8l-1.46.343zm-4.45 9.564a11.196 11.196 0 01-5.114 0l-.342 1.46c1.907.448 3.892.448 5.8 0l-.343-1.46zM8.496 4.046a11.198 11.198 0 015.115 0l.342-1.46a12.698 12.698 0 00-5.8 0l.343 1.46zm0 14.013a5.97 5.97 0 01-4.45-4.45l-1.46.343a7.47 7.47 0 005.568 5.568l.342-1.46zm5.457 1.46a7.47 7.47 0 005.568-5.567l-1.46-.342a5.97 5.97 0 01-4.45 4.45l.342 1.46zM13.61 4.046a5.97 5.97 0 014.45 4.45l1.46-.343a7.47 7.47 0 00-5.568-5.567l-.342 1.46zm-5.457-1.46a7.47 7.47 0 00-5.567 5.567l1.46.342a5.97 5.97 0 014.45-4.45l-.343-1.46zm8.652 15.28l3.665 3.664 1.06-1.06-3.665-3.665-1.06 1.06z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  id="searchbar-box"
+                  data-active-tab="#search-all"
+                  class="popper-root search-tab-wrapper"
+                >
+                  <div
+                    class="popper-box flex max-h-[calc(100vh-6rem)] w-80 flex-col rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-800 dark:bg-navy-700 dark:shadow-soft-dark"
                   >
                     <div
-                      class="popper-box flex max-h-[calc(100vh-6rem)] w-80 flex-col rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-800 dark:bg-navy-700 dark:shadow-soft-dark"
+                      class="is-scrollbar-hidden flex shrink-0 overflow-x-auto rounded-t-lg bg-slate-100 px-2 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
+                    >
+                      <button
+                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                        data-target="#search-all"
+                      >
+                        All
+                      </button>
+                      <button
+                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                        data-target="#search-files"
+                      >
+                        Files
+                      </button>
+                      <button
+                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                        data-target="#search-chats"
+                      >
+                        Chats
+                      </button>
+                      <button
+                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                        data-target="#search-emails"
+                      >
+                        Emails
+                      </button>
+                      <button
+                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                        data-target="#search-projects"
+                      >
+                        Projects
+                      </button>
+                      <button
+                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                        data-target="#search-tasks"
+                      >
+                        Tasks
+                      </button>
+                    </div>
+
+                    <div
+                      class="is-scrollbar-hidden overflow-y-auto overscroll-contain pb-2"
                     >
                       <div
-                        x-data="{activeTab:'tabAll'}"
-                        class="is-scrollbar-hidden flex shrink-0 overflow-x-auto rounded-t-lg bg-slate-100 px-2 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
+                        class="is-scrollbar-hidden mt-3 flex space-x-4 overflow-x-auto px-3"
                       >
-                        <button
-                          @click="activeTab = 'tabAll'"
-                          :class="activeTab === 'tabAll' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                        <a href="apps-kanban.html" class="w-14 text-center">
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-success text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Kanban
+                          </p>
+                        </a>
+                        <a
+                          href="dashboards-crm-analytics.html"
+                          class="w-14 text-center"
                         >
-                          All
-                        </button>
-                        <button
-                          @click="activeTab = 'tabFiles'"
-                          :class="activeTab === 'tabFiles' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-secondary text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Analytics
+                          </p>
+                        </a>
+                        <a href="apps-chat.html" class="w-14 text-center">
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-info text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Chat
+                          </p>
+                        </a>
+                        <a
+                          href="apps-filemanager.html"
+                          class="w-14 text-center"
                         >
-                          Files
-                        </button>
-                        <button
-                          @click="activeTab = 'tabChats'"
-                          :class="activeTab === 'tabChats' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-error text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Files
+                          </p>
+                        </a>
+                        <a
+                          href="dashboards-crypto.html"
+                          class="w-14 text-center"
                         >
-                          Chats
-                        </button>
-                        <button
-                          @click="activeTab = 'tabEmails'"
-                          :class="activeTab === 'tabEmails' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-secondary text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Crypto
+                          </p>
+                        </a>
+                        <a
+                          href="dashboards-banking-1.html"
+                          class="w-14 text-center"
                         >
-                          Emails
-                        </button>
-                        <button
-                          @click="activeTab = 'tabProjects'"
-                          :class="activeTab === 'tabProjects' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-primary text-white dark:bg-accent"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Banking
+                          </p>
+                        </a>
+                        <a href="apps-todo.html" class="w-14 text-center">
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-info text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  d="M12.5293 18L20.9999 8.40002"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M3 13.2L7.23529 18L17.8235 6"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Todo
+                          </p>
+                        </a>
+                        <a
+                          href="dashboards-crm-analytics.html"
+                          class="w-14 text-center"
                         >
-                          Projects
-                        </button>
-                        <button
-                          @click="activeTab = 'tabTasks'"
-                          :class="activeTab === 'tabTasks' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-secondary text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Analytics
+                          </p>
+                        </a>
+                        <a
+                          href="dashboards-orders.html"
+                          class="w-14 text-center"
                         >
-                          Tasks
-                        </button>
+                          <div class="avatar h-12 w-12">
+                            <div
+                              class="is-initial rounded-full bg-warning text-white"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <p
+                            class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
+                          >
+                            Orders
+                          </p>
+                        </a>
                       </div>
 
                       <div
-                        class="is-scrollbar-hidden overflow-y-auto overscroll-contain pb-2"
+                        class="mt-3 flex items-center justify-between bg-slate-100 py-1.5 px-3 dark:bg-navy-800"
                       >
-                        <div
-                          class="is-scrollbar-hidden mt-3 flex space-x-4 overflow-x-auto px-3"
+                        <p class="text-xs uppercase">Recent</p>
+                        <a
+                          href="#"
+                          class="text-tiny+ font-medium uppercase text-primary outline-none transition-colors duration-300 hover:text-primary/70 focus:text-primary/70 dark:text-accent-light dark:hover:text-accent-light/70 dark:focus:text-accent-light/70"
                         >
-                          <a href="apps-kanban.html" class="w-14 text-center">
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-success text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Kanban
-                            </p>
-                          </a>
-                          <a
-                            href="dashboards-crm-analytics.html"
-                            class="w-14 text-center"
-                          >
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-secondary text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Analytics
-                            </p>
-                          </a>
-                          <a href="apps-chat.html" class="w-14 text-center">
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-info text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Chat
-                            </p>
-                          </a>
-                          <a
-                            href="apps-filemanager.html"
-                            class="w-14 text-center"
-                          >
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-error text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Files
-                            </p>
-                          </a>
-                          <a
-                            href="dashboards-crypto-1.html"
-                            class="w-14 text-center"
-                          >
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-secondary text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Crypto
-                            </p>
-                          </a>
-                          <a
-                            href="dashboards-banking-1.html"
-                            class="w-14 text-center"
-                          >
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-primary text-white dark:bg-accent"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Banking
-                            </p>
-                          </a>
-                          <a href="apps-todo.html" class="w-14 text-center">
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-info text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    d="M12.5293 18L20.9999 8.40002"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  />
-                                  <path
-                                    d="M3 13.2L7.23529 18L17.8235 6"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Todo
-                            </p>
-                          </a>
-                          <a
-                            href="dashboards-crm-analytics.html"
-                            class="w-14 text-center"
-                          >
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-secondary text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Analytics
-                            </p>
-                          </a>
-                          <a
-                            href="dashboards-orders.html"
-                            class="w-14 text-center"
-                          >
-                            <div class="avatar h-12 w-12">
-                              <div
-                                class="is-initial rounded-full bg-warning text-white"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <p
-                              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-                            >
-                              Orders
-                            </p>
-                          </a>
-                        </div>
+                          View All
+                        </a>
+                      </div>
 
-                        <div
-                          class="mt-3 flex items-center justify-between bg-slate-100 py-1.5 px-3 dark:bg-navy-800"
+                      <div class="mt-1 font-inter font-medium">
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="apps-chat.html"
                         >
-                          <p class="text-xs uppercase">Recent</p>
-                          <a
-                            href="#"
-                            class="text-tiny+ font-medium uppercase text-primary outline-none transition-colors duration-300 hover:text-primary/70 focus:text-primary/70 dark:text-accent-light dark:hover:text-accent-light/70 dark:focus:text-accent-light/70"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
                           >
-                            View All
-                          </a>
-                        </div>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                            />
+                          </svg>
+                          <span>Chat App</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="apps-filemanager.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                            />
+                          </svg>
+                          <span>File Manager App</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="apps-mail.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            />
+                          </svg>
+                          <span>Email App</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="apps-kanban.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+                            />
+                          </svg>
+                          <span>Kanban Board</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="apps-todo.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                          >
+                            <path
+                              d="M3 13.2L7.23529 18L17.8235 6"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M12.5293 18L20.9999 8.40002"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                          <span>Todo App</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="dashboards-crypto-2.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
 
-                        <div class="mt-1 font-inter font-medium">
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="apps-chat.html"
+                          <span>Crypto Dashboard</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="dashboards-banking-2.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                              />
-                            </svg>
-                            <span>Chat App</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="apps-filemanager.html"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                              />
-                            </svg>
-                            <span>File Manager App</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="apps-mail.html"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                              />
-                            </svg>
-                            <span>Email App</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="apps-kanban.html"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
-                              />
-                            </svg>
-                            <span>Kanban Board</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="apps-todo.html"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                d="M3 13.2L7.23529 18L17.8235 6"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                              <path
-                                d="M12.5293 18L20.9999 8.40002"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                            <span>Todo App</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="dashboards-crypto-2.html"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+                            />
+                          </svg>
 
-                            <span>Crypto Dashboard</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="dashboards-banking-2.html"
+                          <span>Banking Dashboard</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="dashboards-crm-analytics.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-                              />
-                            </svg>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                            />
+                          </svg>
 
-                            <span>Banking Dashboard</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="dashboards-crm-analytics.html"
+                          <span>Analytics Dashboard</span>
+                        </a>
+                        <a
+                          class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
+                          href="dashboards-influencer.html"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.5"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                              />
-                            </svg>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
 
-                            <span>Analytics Dashboard</span>
-                          </a>
-                          <a
-                            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-                            href="dashboards-influencer.html"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                              />
-                            </svg>
-
-                            <span>Influencer Dashboard</span>
-                          </a>
-                        </div>
+                          <span>Influencer Dashboard</span>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-              </template>
+              </div>
 
               <!-- Dark Mode Toggle -->
               <button
-                @click="$store.global.isDarkModeEnabled = !$store.global.isDarkModeEnabled"
-                class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                class="darkmode-toggle btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
-                  x-show="$store.global.isDarkModeEnabled"
-                  x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
-                  x-transition:enter-start="scale-75"
-                  x-transition:enter-end="scale-100 static"
-                  class="h-6 w-6 text-amber-400"
+                  class="darkmode-moon h-6 w-6 text-amber-400"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -2168,11 +2119,7 @@
                 </svg>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  x-show="!$store.global.isDarkModeEnabled"
-                  x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
-                  x-transition:enter-start="scale-75"
-                  x-transition:enter-end="scale-100 static"
-                  class="h-6 w-6 text-amber-400"
+                  class="darkmode-sun h-6 w-6 text-amber-400"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -2183,10 +2130,10 @@
                   />
                 </svg>
               </button>
+
               <!-- Monochrome Mode Toggle -->
               <button
-                @click="$store.global.isMonochromeModeEnabled = !$store.global.isMonochromeModeEnabled"
-                class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                class="monochrome-toggle btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <i
                   class="fa-solid fa-palette bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-lg font-semibold text-transparent"
@@ -2194,15 +2141,9 @@
               </button>
 
               <!-- Notification-->
-              <div
-                x-effect="if($store.global.isSearchbarActive) isShowPopper = false"
-                x-data="usePopper({placement:'bottom-end',offset:12})"
-                @click.outside="isShowPopper && (isShowPopper = false)"
-                class="flex"
-              >
+              <div id="notification-wrapper" class="flex">
                 <button
-                  @click="isShowPopper = !isShowPopper"
-                  x-ref="popperRef"
+                  id="notification-ref"
                   class="btn relative h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                 >
                   <svg
@@ -2231,14 +2172,9 @@
                     ></span>
                   </span>
                 </button>
-                <div
-                  :class="isShowPopper && 'show'"
-                  class="popper-root"
-                  x-ref="popperRoot"
-                >
+                <div id="notification-box" class="popper-root">
                   <div
-                    x-data="{activeTab:'tabAll'}"
-                    class="popper-box mx-4 mt-1 flex max-h-[calc(100vh-6rem)] w-[calc(100vw-2rem)] flex-col rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-800 dark:bg-navy-700 dark:shadow-soft-dark sm:m-0 sm:w-80"
+                    class="notification-tab-wrapper popper-box mx-4 mt-1 flex max-h-[calc(100vh-6rem)] w-[calc(100vw-2rem)] flex-col rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-800 dark:bg-navy-700 dark:shadow-soft-dark sm:m-0 sm:w-80"
                   >
                     <div
                       class="rounded-t-lg bg-slate-100 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
@@ -2283,46 +2219,47 @@
                       </div>
 
                       <div
-                        class="is-scrollbar-hidden flex shrink-0 overflow-x-auto px-3"
+                        class="tabs is-scrollbar-hidden flex shrink-0 overflow-x-auto px-3"
                       >
                         <button
-                          @click="activeTab = 'tabAll'"
-                          :class="activeTab === 'tabAll' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                          data-target="#notification-all"
                         >
                           <span>All</span>
                         </button>
                         <button
-                          @click="activeTab = 'tabAlerts'"
-                          :class="activeTab === 'tabAlerts' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                          data-target="#notification-alerts"
                         >
                           <span>Alerts</span>
                         </button>
                         <button
-                          @click="activeTab = 'tabEvents'"
-                          :class="activeTab === 'tabEvents' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                          data-target="#notification-events"
                         >
                           <span>Events</span>
                         </button>
                         <button
-                          @click="activeTab = 'tabLogs'"
-                          :class="activeTab === 'tabLogs' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-                          class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+                          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+                          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+                          data-target="#notification-logs"
                         >
                           <span>Logs</span>
                         </button>
                       </div>
                     </div>
 
-                    <div class="tab-content flex flex-col overflow-hidden">
+                    <div class="flex flex-col overflow-hidden">
                       <div
-                        x-show="activeTab === 'tabAll'"
-                        x-transition:enter="transition-all duration-300 easy-in-out"
-                        x-transition:enter-start="opacity-0 [transform:translate3d(1rem,0,0)]"
-                        x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-                        class="is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
+                        class="tab-content tab-shift-left is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
+                        id="notification-all"
                       >
                         <div class="flex items-center space-x-3">
                           <div
@@ -2538,11 +2475,8 @@
                         </div>
                       </div>
                       <div
-                        x-show="activeTab === 'tabAlerts'"
-                        x-transition:enter="transition-all duration-300 easy-in-out"
-                        x-transition:enter-start="opacity-0 [transform:translate3d(1rem,0,0)]"
-                        x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-                        class="is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
+                        id="notification-alerts"
+                        class="tab-content tab-shift-left is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
                       >
                         <div class="flex items-center space-x-3">
                           <div
@@ -2646,11 +2580,8 @@
                         </div>
                       </div>
                       <div
-                        x-show="activeTab === 'tabEvents'"
-                        x-transition:enter="transition-all duration-300 easy-in-out"
-                        x-transition:enter-start="opacity-0 [transform:translate3d(1rem,0,0)]"
-                        x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-                        class="is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
+                        id="notification-events"
+                        class="tab-content tab-shift-left is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
                       >
                         <div class="flex items-center space-x-3">
                           <div
@@ -2841,11 +2772,8 @@
                         </div>
                       </div>
                       <div
-                        x-show="activeTab === 'tabLogs'"
-                        x-transition:enter="transition-all duration-300 easy-in-out"
-                        x-transition:enter-start="opacity-0 [transform:translate3d(1rem,0,0)]"
-                        x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-                        class="is-scrollbar-hidden overflow-y-auto px-4"
+                        id="notification-logs"
+                        class="tab-content tab-shift-left is-scrollbar-hidden overflow-y-auto px-4"
                       >
                         <div class="mt-8 pb-8 text-center">
                           <img
@@ -2872,7 +2800,8 @@
 
               <!-- Right Sidebar Toggle -->
               <button
-                @click="$store.global.isRightSidebarExpanded = true"
+                data-toggle="drawer"
+                data-target="#right-sidebar"
                 class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -2897,21 +2826,13 @@
 
       <!-- Mobile Searchbar -->
       <div
-        x-show="$store.breakpoints.isXs && $store.global.isSearchbarActive"
-        x-transition:enter="easy-out transition-all"
-        x-transition:enter-start="opacity-0 scale-105"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="easy-in transition-all"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-        class="fixed inset-0 z-[100] flex flex-col bg-white dark:bg-navy-700 sm:hidden"
+        class="mobile-searchbar fixed inset-0 z-[100] hidden flex-col bg-white dark:bg-navy-700"
       >
         <div
           class="flex items-center space-x-2 bg-slate-100 px-3 pt-2 dark:bg-navy-800"
         >
           <button
-            class="btn -ml-1.5 h-7 w-7 shrink-0 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
-            @click="$store.global.isSearchbarActive = false"
+            class="mobile-searchbar-hide btn -ml-1.5 h-7 w-7 shrink-0 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -2929,56 +2850,61 @@
             </svg>
           </button>
           <input
-            x-effect="$store.global.isSearchbarActive && $nextTick(() => $el.focus() );"
-            class="form-input h-8 w-full bg-transparent placeholder-slate-400 dark:placeholder-navy-300"
+            class="mobile-searchbar-input form-input h-8 w-full bg-transparent placeholder-slate-400 dark:placeholder-navy-300"
             type="text"
             placeholder="Search here..."
           />
         </div>
 
         <div
-          x-data="{activeTab:'tabAll'}"
-          class="is-scrollbar-hidden flex shrink-0 overflow-x-auto bg-slate-100 px-2 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
+          data-active-tab="#mobile-search-all"
+          class="mobile-search-tab-wrapper is-scrollbar-hidden flex shrink-0 overflow-x-auto bg-slate-100 px-2 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
         >
           <button
-            @click="activeTab = 'tabAll'"
-            :class="activeTab === 'tabAll' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-            class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+            data-target="#mobile-search-all"
+            data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+            data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+            class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
           >
             All
           </button>
           <button
-            @click="activeTab = 'tabFiles'"
-            :class="activeTab === 'tabFiles' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-            class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+            data-target="#mobile-search-files"
+            data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+            data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+            class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
           >
             Files
           </button>
           <button
-            @click="activeTab = 'tabChats'"
-            :class="activeTab === 'tabChats' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-            class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+            data-target="#mobile-search-chats"
+            data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+            data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+            class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
           >
             Chats
           </button>
           <button
-            @click="activeTab = 'tabEmails'"
-            :class="activeTab === 'tabEmails' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-            class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+            data-target="#mobile-search-emails"
+            data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+            data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+            class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
           >
             Emails
           </button>
           <button
-            @click="activeTab = 'tabProjects'"
-            :class="activeTab === 'tabProjects' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-            class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+            data-target="#mobile-search-projects"
+            data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+            data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+            class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
           >
             Projects
           </button>
           <button
-            @click="activeTab = 'tabTasks'"
-            :class="activeTab === 'tabTasks' ? 'border-primary dark:border-accent text-primary dark:text-accent-light' : 'border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100'"
-            class="btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
+            data-target="#mobile-search-tasks"
+            data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
+            data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
+            class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
           >
             Tasks
           </button>
@@ -3091,7 +3017,7 @@
                 Files
               </p>
             </a>
-            <a href="dashboards-crypto-1.html" class="w-14 text-center">
+            <a href="dashboards-crypto.html" class="w-14 text-center">
               <div class="avatar h-12 w-12">
                 <div class="is-initial rounded-full bg-secondary text-white">
                   <svg
@@ -3408,37 +3334,20 @@
       </div>
 
       <!-- Right Sidebar -->
-      <div
-        x-show="$store.global.isRightSidebarExpanded"
-        @keydown.window.escape="$store.global.isRightSidebarExpanded = false"
-      >
+      <div id="right-sidebar" class="drawer drawer-right">
         <div
-          class="fixed inset-0 z-[150] bg-slate-900/60 transition-opacity duration-200"
-          @click="$store.global.isRightSidebarExpanded = false"
-          x-show="$store.global.isRightSidebarExpanded"
-          x-transition:enter="ease-out"
-          x-transition:enter-start="opacity-0"
-          x-transition:enter-end="opacity-100"
-          x-transition:leave="ease-in"
-          x-transition:leave-start="opacity-100"
-          x-transition:leave-end="opacity-0"
+          class="drawer-overlay fixed inset-0 z-[150] hidden bg-slate-900/60"
         ></div>
-        <div class="fixed right-0 top-0 z-[151] h-full w-full sm:w-80">
+        <div
+          class="drawer-content fixed right-0 top-0 z-[151] hidden h-full w-full sm:w-80"
+        >
           <div
-            x-data="{activeTab:'tabHome'}"
-            class="relative flex h-full w-full transform-gpu flex-col bg-white transition-transform duration-200 dark:bg-navy-750"
-            x-show="$store.global.isRightSidebarExpanded"
-            x-transition:enter="ease-out"
-            x-transition:enter-start="translate-x-full"
-            x-transition:enter-end="translate-x-0"
-            x-transition:leave="ease-in"
-            x-transition:leave-start="translate-x-0"
-            x-transition:leave-end="translate-x-full"
+            class="right-sidebar-tab-wrapper w-ful relative flex h-full flex-col bg-white dark:bg-navy-750"
           >
             <div class="flex items-center justify-between py-2 px-4">
               <p
-                x-show="activeTab === 'tabHome'"
-                class="flex shrink-0 items-center space-x-1.5"
+                data-header="#right-sidebar-tab-home"
+                class="right-sidebar-header flex shrink-0 items-center space-x-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -3457,8 +3366,8 @@
                 <span class="text-xs">25 May, 2022</span>
               </p>
               <p
-                x-show="activeTab === 'tabProjects'"
-                class="flex shrink-0 items-center space-x-1.5"
+                data-header="#right-sidebar-tab-project"
+                class="right-sidebar-header flex shrink-0 items-center space-x-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -3477,8 +3386,8 @@
                 <span class="text-xs">Projects</span>
               </p>
               <p
-                x-show="activeTab === 'tabActivity'"
-                class="flex shrink-0 items-center space-x-1.5"
+                data-header="#right-sidebar-tab-activity"
+                class="right-sidebar-header flex shrink-0 items-center space-x-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -3496,9 +3405,8 @@
                 </svg>
                 <span class="text-xs">Activity</span>
               </p>
-
               <button
-                @click="$store.global.isRightSidebarExpanded=false"
+                data-close-drawer
                 class="btn -mr-1 h-6 w-6 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -3519,11 +3427,8 @@
             </div>
 
             <div
-              x-show="activeTab === 'tabHome'"
-              x-transition:enter="transition-all duration-500 easy-in-out"
-              x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-              x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-              class="is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
+              id="right-sidebar-tab-home"
+              class="tab-content tab-shift-up is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
             >
               <label class="relative flex px-3">
                 <input
@@ -3553,81 +3458,78 @@
                   Banking cards
                 </h2>
                 <div
-                  class="swiper mt-3 px-3"
-                  x-init="$nextTick(()=>new Swiper($el,{  slidesPerView: 'auto', spaceBetween: 16}))"
+                  class="scrollbar-sm mt-3 flex space-x-4 overflow-x-auto px-3"
                 >
-                  <div class="swiper-wrapper">
-                    <div
-                      class="swiper-slide relative flex h-28 w-48 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 p-3"
-                    >
-                      <div class="grow">
-                        <img
-                          class="h-3"
-                          src="images/payments/cc-visa-white.svg"
-                          alt="image"
-                        />
-                      </div>
-                      <div class="text-white">
-                        <p class="text-lg font-semibold tracking-wide">
-                          $2,139.22
-                        </p>
-                        <p class="mt-1 text-xs font-medium">
-                          **** **** **** 8945
-                        </p>
-                      </div>
-                      <div
-                        class="mask is-reuleaux-triangle absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
-                      ></div>
+                  <div
+                    class="relative flex h-28 w-48 shrink-0 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 p-3"
+                  >
+                    <div class="grow">
+                      <img
+                        class="h-3"
+                        src="images/payments/cc-visa-white.svg"
+                        alt="image"
+                      />
+                    </div>
+                    <div class="text-white">
+                      <p class="text-lg font-semibold tracking-wide">
+                        $2,139.22
+                      </p>
+                      <p class="mt-1 text-xs font-medium">
+                        **** **** **** 8945
+                      </p>
                     </div>
                     <div
-                      class="swiper-slide relative flex h-28 w-48 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 p-3"
-                    >
-                      <div class="grow">
-                        <img
-                          class="h-3"
-                          src="images/payments/cc-visa-white.svg"
-                          alt="image"
-                        />
-                      </div>
-                      <div class="text-white">
-                        <p class="text-lg font-semibold tracking-wide">
-                          $2,139.22
-                        </p>
-                        <p class="mt-1 text-xs font-medium">
-                          **** **** **** 8945
-                        </p>
-                      </div>
-                      <div
-                        class="mask is-diamond absolute bottom-0 right-0 -m-3 h-16 w-16 bg-white/20"
-                      ></div>
+                      class="mask is-reuleaux-triangle absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
+                    ></div>
+                  </div>
+                  <div
+                    class="relative flex h-28 w-48 shrink-0 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 p-3"
+                  >
+                    <div class="grow">
+                      <img
+                        class="h-3"
+                        src="images/payments/cc-visa-white.svg"
+                        alt="image"
+                      />
+                    </div>
+                    <div class="text-white">
+                      <p class="text-lg font-semibold tracking-wide">
+                        $2,139.22
+                      </p>
+                      <p class="mt-1 text-xs font-medium">
+                        **** **** **** 8945
+                      </p>
                     </div>
                     <div
-                      class="swiper-slide relative flex h-28 w-48 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-info to-info-focus p-3"
-                    >
-                      <div class="grow">
-                        <img
-                          class="h-3"
-                          src="images/payments/cc-visa-white.svg"
-                          alt="image"
-                        />
-                      </div>
-                      <div class="text-white">
-                        <p class="text-lg font-semibold tracking-wide">
-                          $2,139.22
-                        </p>
-                        <p class="mt-1 text-xs font-medium">
-                          **** **** **** 8945
-                        </p>
-                      </div>
-                      <div
-                        class="mask is-hexagon-2 absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
-                      ></div>
+                      class="mask is-diamond absolute bottom-0 right-0 -m-3 h-16 w-16 bg-white/20"
+                    ></div>
+                  </div>
+                  <div
+                    class="relative flex h-28 w-48 shrink-0 flex-col overflow-hidden rounded-xl bg-gradient-to-br from-info to-info-focus p-3"
+                  >
+                    <div class="grow">
+                      <img
+                        class="h-3"
+                        src="images/payments/cc-visa-white.svg"
+                        alt="image"
+                      />
                     </div>
+                    <div class="text-white">
+                      <p class="text-lg font-semibold tracking-wide">
+                        $2,139.22
+                      </p>
+                      <p class="mt-1 text-xs font-medium">
+                        **** **** **** 8945
+                      </p>
+                    </div>
+                    <div
+                      class="mask is-hexagon-2 absolute top-0 right-0 -m-3 h-16 w-16 bg-white/20"
+                    ></div>
                   </div>
                 </div>
               </div>
 
-              <div class="mt-4 px-3">
+              <div class="mt-2 px-3">
                 <h2
                   class="text-xs+ font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100"
                 >
@@ -3933,12 +3835,6 @@
                       </div>
                     </div>
 
-                    <div class="ax-transparent-gridline">
-                      <div
-                        x-init="$nextTick(() => { $el._x_chart = new ApexCharts($el,pages.charts.stockMarket1); $el._x_chart.render() });"
-                      ></div>
-                    </div>
-
                     <div class="mt-2 flex items-center justify-between">
                       <p
                         class="font-medium tracking-wide text-slate-700 dark:text-navy-100"
@@ -3966,12 +3862,6 @@
                         </h2>
                         <p class="text-xs">Solana</p>
                       </div>
-                    </div>
-
-                    <div class="ax-transparent-gridline">
-                      <div
-                        x-init="$nextTick(() => { $el._x_chart = new ApexCharts($el,pages.charts.stockMarket2); $el._x_chart.render() });"
-                      ></div>
                     </div>
 
                     <div class="mt-2 flex items-center justify-between">
@@ -4232,32 +4122,6 @@
               </div>
 
               <div class="mt-3 px-3">
-                <h2
-                  class="text-xs+ font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100"
-                >
-                  Settings
-                </h2>
-                <div class="mt-2 flex flex-col space-y-2">
-                  <label class="inline-flex items-center space-x-2">
-                    <input
-                      x-model="$store.global.isDarkModeEnabled"
-                      class="form-switch h-5 w-10 rounded-lg bg-slate-300 before:rounded-md before:bg-slate-50 checked:bg-slate-500 checked:before:bg-white dark:bg-navy-900 dark:before:bg-navy-300 dark:checked:bg-navy-400 dark:checked:before:bg-white"
-                      type="checkbox"
-                    />
-                    <span>Dark Mode</span>
-                  </label>
-                  <label class="inline-flex items-center space-x-2">
-                    <input
-                      x-model="$store.global.isMonochromeModeEnabled"
-                      class="form-switch h-5 w-10 rounded-lg bg-slate-300 before:rounded-md before:bg-slate-50 checked:bg-slate-500 checked:before:bg-white dark:bg-navy-900 dark:before:bg-navy-300 dark:checked:bg-navy-400 dark:checked:before:bg-white"
-                      type="checkbox"
-                    />
-                    <span>Monochrome Mode</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="mt-3 px-3">
                 <div class="rounded-lg bg-slate-100 p-3 dark:bg-navy-600">
                   <div class="flex items-center justify-between">
                     <p>
@@ -4283,11 +4147,8 @@
             </div>
 
             <div
-              x-show="activeTab === 'tabProjects'"
-              x-transition:enter="transition-all duration-500 easy-in-out"
-              x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-              x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-              class="is-scrollbar-hidden overflow-y-auto overscroll-contain px-3 pt-1"
+              id="right-sidebar-tab-project"
+              class="tab-content tab-shift-up is-scrollbar-hidden overflow-y-auto overscroll-contain px-3 pt-1"
             >
               <div class="grid grid-cols-2 gap-3">
                 <div class="rounded-lg bg-slate-100 p-3 dark:bg-navy-600">
@@ -4684,11 +4545,8 @@
             </div>
 
             <div
-              x-show="activeTab === 'tabActivity'"
-              x-transition:enter="transition-all duration-500 easy-in-out"
-              x-transition:enter-start="opacity-0 [transform:translate3d(0,1rem,0)]"
-              x-transition:enter-end="opacity-100 [transform:translate3d(0,0,0)]"
-              class="is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
+              id="right-sidebar-tab-activity"
+              class="tab-content tab-shift-up is-scrollbar-hidden overflow-y-auto overscroll-contain pt-1"
             >
               <div
                 class="mx-3 flex flex-col items-center rounded-lg bg-slate-100 py-3 px-8 dark:bg-navy-600"
@@ -5037,12 +4895,12 @@
                 class="pointer-events-auto mx-auto flex space-x-1 rounded-full border border-slate-150 bg-white px-4 py-0.5 shadow-lg dark:border-navy-700 dark:bg-navy-900"
               >
                 <button
-                  @click="activeTab = 'tabHome'"
-                  :class="activeTab === 'tabHome' && 'text-primary dark:text-accent'"
-                  class="btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  data-target="#right-sidebar-tab-home"
+                  data-active-class="text-primary dark:text-accent [&_svg:last-child]:hidden"
+                  data-default-class="[&_svg:first-child]:hidden"
+                  class="tab btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
-                    x-show="activeTab === 'tabHome'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     viewBox="0 0 20 20"
@@ -5053,7 +4911,6 @@
                     />
                   </svg>
                   <svg
-                    x-show="activeTab !== 'tabHome'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     fill="none"
@@ -5069,12 +4926,12 @@
                   </svg>
                 </button>
                 <button
-                  @click="activeTab = 'tabProjects'"
-                  :class="activeTab === 'tabProjects' && 'text-primary dark:text-accent'"
-                  class="btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  data-target="#right-sidebar-tab-project"
+                  data-active-class="text-primary dark:text-accent [&_svg:last-child]:hidden"
+                  data-default-class="[&_svg:first-child]:hidden"
+                  class="tab btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
-                    x-show="activeTab === 'tabProjects'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     viewBox="0 0 20 20"
@@ -5088,10 +4945,9 @@
                   </svg>
 
                   <svg
-                    x-show="activeTab !== 'tabProjects'"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 shrink-0"
                     fill="none"
+                    class="h-5 w-5 shrink-0"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     stroke-width="1.5"
@@ -5104,12 +4960,12 @@
                   </svg>
                 </button>
                 <button
-                  @click="activeTab = 'tabActivity'"
-                  :class="activeTab === 'tabActivity' && 'text-primary dark:text-accent'"
-                  class="btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
+                  data-target="#right-sidebar-tab-activity"
+                  data-active-class="text-primary dark:text-accent [&_svg:last-child]:hidden"
+                  data-default-class="[&_svg:first-child]:hidden"
+                  class="tab btn h-9 rounded-full py-0 px-4 hover:bg-slate-300/20 hover:text-primary focus:bg-slate-300/20 focus:text-primary active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:hover:text-accent dark:focus:bg-navy-300/20 dark:focus:text-accent dark:active:bg-navy-300/25"
                 >
                   <svg
-                    x-show="activeTab ===  'tabActivity'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     viewBox="0 0 20 20"
@@ -5122,7 +4978,6 @@
                     />
                   </svg>
                   <svg
-                    x-show="activeTab !==  'tabActivity'"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5 shrink-0"
                     fill="none"
@@ -5152,24 +5007,14 @@
             >
               Responsive Posts
             </h2>
-            <div
-              x-data="usePopper({placement:'bottom-start',offset:4})"
-              @click.outside="isShowPopper && (isShowPopper = false)"
-              class="inline-flex"
-            >
+            <div id="top-header-menu" class="inline-flex">
               <button
-                x-ref="popperRef"
-                @click="isShowPopper = !isShowPopper"
-                class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <i class="fas fa-chevron-down"></i>
               </button>
 
-              <div
-                x-ref="popperRoot"
-                class="popper-root"
-                :class="isShowPopper && 'show'"
-              >
+              <div class="popper-root">
                 <div
                   class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                 >
@@ -5370,15 +5215,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu1" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -5396,11 +5235,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -5518,15 +5353,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu2" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -5544,11 +5373,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -5665,15 +5490,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu3" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -5691,11 +5510,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -5813,15 +5628,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu4" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -5839,11 +5648,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -5960,15 +5765,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu5" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -5986,11 +5785,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -6108,15 +5903,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu6" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -6134,11 +5923,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -6255,15 +6040,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu7" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -6281,11 +6060,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -6403,15 +6178,9 @@
                     </svg>
                   </button>
 
-                  <div
-                    x-data="usePopper({placement:'bottom-end',offset:4})"
-                    @click.outside="isShowPopper && (isShowPopper = false)"
-                    class="inline-flex"
-                  >
+                  <div id="cardMenu8" class="inline-flex">
                     <button
-                      x-ref="popperRef"
-                      @click="isShowPopper = !isShowPopper"
-                      class="btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                      class="popper-ref btn h-7 w-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -6429,11 +6198,7 @@
                       </svg>
                     </button>
 
-                    <div
-                      x-ref="popperRoot"
-                      class="popper-root"
-                      :class="isShowPopper && 'show'"
-                    >
+                    <div class="popper-root">
                       <div
                         class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                       >
@@ -6524,13 +6289,5 @@
         </div>
       </main>
     </div>
-    <!-- 
-        This is a place for Alpine.js Teleport feature 
-        @see https://alpinejs.dev/directives/teleport
-      -->
-    <div id="x-teleport-target"></div>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => Alpine.start());
-    </script>
   </body>
 </html>
