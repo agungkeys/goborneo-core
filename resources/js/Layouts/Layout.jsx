@@ -28,7 +28,7 @@ export default function Layout({ children }) {
                 <Container maxWidth="container.sm">
                     <Flex>
                         <Image
-                            src="./image/goborneo.svg"
+                            src="{{ asset('image/goborneo.svg') }}"
                             alt="GoBorneo"
                             w="130px"
                         />
