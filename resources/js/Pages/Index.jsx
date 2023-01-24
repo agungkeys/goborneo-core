@@ -8,7 +8,7 @@ export default function Index(props) {
             <Box py={4}>
                 <Text textAlign="center" color="teal.400" fontSize="lg" fontWeight="semibold">We are cooking something delicious</Text>
                 <Center mt={2}>
-                <Image src="./image/vector-creative.svg" alt="vector" w="280px" />
+                <Image src="https://res.cloudinary.com/do5w0oe22/image/upload/v1674557612/images/vector-creative_na7t5s.webp" alt="vector" w="280px" />
                 </Center>
             </Box>
         </Layout>

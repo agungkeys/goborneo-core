@@ -14,7 +14,7 @@ export default function Layout({ children }) {
                 <link
                     rel="icon"
                     type="image/svg+xml"
-                    href="favicon.ico"
+                    href="https://res.cloudinary.com/do5w0oe22/image/upload/v1674557601/images/favicon_kv0qm4.ico"
                 />
             </Head>
             <Box
@@ -28,7 +28,7 @@ export default function Layout({ children }) {
                 <Container maxWidth="container.sm">
                     <Flex>
                         <Image
-                            src="{{ asset('image/goborneo.svg') }}"
+                            src="https://res.cloudinary.com/do5w0oe22/image/upload/v1674557611/images/goborneo_oidkpq.webp"
                             alt="GoBorneo"
                             w="130px"
                         />
