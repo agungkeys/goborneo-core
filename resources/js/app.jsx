@@ -1,33 +1,31 @@
-import React from "react";
-import { render } from "react-dom";
-import { InertiaApp } from "@inertiajs/inertia-react";
-import { createRoot } from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
-import Layout from './components/Layout';
-import '../css/app.css';
+import "./bootstrap";
+import "../css/app.css";
 
-const app = document.getElementById('app');
-const root = createRoot(app); 
-root.render(
-  <ChakraProvider>
-    <InertiaApp 
-      initialPage={JSON.parse(app.dataset.page)}
-      resolveComponent={name => require(`./Pages/${name}`).default}
-    />
-  </ChakraProvider>
-)
-// createInertiaApp({
-//     resolve: name => import(`./Pages/${name}`),
-//     setup({ el, App, props }) {
-//         render(<App {...props} />, el);
-//     }
-// });
+import { createRoot } from "react-dom/client";
+import { createInertiaApp } from "@inertiajs/react";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { ChakraProvider } from "@chakra-ui/react";
 
-// createInertiaApp({
-//   resolve: name => {
-//     const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
-//     let page = pages[`./Pages/${name}.jsx`]
-//     page.default.layout = page.default.layout || (page => <Layout children={page} />)
-//     return page
-//   },
-// })
+const appName =
+    window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
+
+createInertiaApp({
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) =>
+        resolvePageComponent(
+            `./Pages/${name}.jsx`,
+            import.meta.glob("./Pages/**/*.jsx")
+        ),
+    setup({ el, App, props }) {
+        const root = createRoot(el);
+
+        root.render(
+            <ChakraProvider>
+                <App {...props} />
+            </ChakraProvider>
+        );
+    },
+    progress: {
+        color: "#4B5563",
+    },
+});
