@@ -1,15 +1,16 @@
 import { Link, Head } from "@inertiajs/react";
 import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
 
-export default function Layout({ children }) {
+export default function Layout(props) {
+    const { children, meta } = props;
     return (
         <Box>
             <Head>
-                <title>Go Borneo - Kalimantan Tourism Information</title>
+                <title>{meta?.title ? meta.title : `Beautiful Kalimantan`}</title>
                 <meta
                     head-key="description"
                     name="description"
-                    content="go borneo is a platform for supporting everything about tourism in kalimantan"
+                    content={meta?.description ? meta.description : `goborneo is a platform for supporting everything about tourism in kalimantan`}
                 />
                 <link
                     rel="icon"
@@ -27,11 +28,13 @@ export default function Layout({ children }) {
             >
                 <Container maxWidth="container.sm">
                     <Flex>
-                        <Image
-                            src="https://res.cloudinary.com/do5w0oe22/image/upload/v1674557611/images/goborneo_oidkpq.webp"
-                            alt="GoBorneo"
-                            w="130px"
-                        />
+                        <Link replace href="/">
+                            <Image
+                                src="https://res.cloudinary.com/do5w0oe22/image/upload/v1674557611/images/goborneo_oidkpq.webp"
+                                alt="GoBorneo"
+                                w="130px"
+                            />
+                        </Link>
                     </Flex>
                 </Container>
             </Box>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import Layout from '@/Layouts/Layout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -32,7 +32,7 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <Layout>
             <Head title="Register" />
 
             <Box mt={8}>
@@ -118,6 +118,6 @@ export default function Register() {
                     </div>
                 </form>
             </Box>
-        </GuestLayout>
+        </Layout>
     );
 }
