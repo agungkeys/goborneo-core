@@ -1,43 +1,18 @@
-import { Link, Head } from "@inertiajs/react";
-import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
+import ApplicationLogo from '@/Components/ApplicationLogo';
+import { Link } from '@inertiajs/react';
 
 export default function Guest({ children }) {
     return (
-        <Box>
-            <Head>
-                <title>Go Borneo - Kalimantan Tourism Information</title>
-                <meta
-                    head-key="description"
-                    name="description"
-                    content="go borneo is a platform for supporting everything about tourism in kalimantan"
-                />
-                <link
-                    rel="icon"
-                    type="image/svg+xml"
-                    href="favicon.ico"
-                />
-            </Head>
-            <Box
-                display="flex"
-                bgColor="gray.50"
-                px={5}
-                py={2}
-                borderBottom="1px solid #e5e7eb"
-                boxShadow="lg"
-            >
-                <Container maxWidth="container.sm">
-                    <Flex>
-                        <Image
-                            src="./image/goborneo.svg"
-                            alt="GoBorneo"
-                            w="130px"
-                        />
-                    </Flex>
-                </Container>
-            </Box>
-            <Box>
-                <Container maxWidth="container.sm"> {children} </Container>
-            </Box>
-        </Box>
+        <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+            <div>
+                <Link href="/">
+                    <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+                </Link>
+            </div>
+
+            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                {children}
+            </div>
+        </div>
     );
 }
