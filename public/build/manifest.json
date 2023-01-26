@@ -1,4 +1,24 @@
 {
+  "node_modules/@fontsource/raleway/files/raleway-cyrillic-400-normal.woff2": {
+    "file": "assets/raleway-cyrillic-400-normal-679eb908.woff2",
+    "src": "node_modules/@fontsource/raleway/files/raleway-cyrillic-400-normal.woff2"
+  },
+  "node_modules/@fontsource/raleway/files/raleway-cyrillic-ext-400-normal.woff2": {
+    "file": "assets/raleway-cyrillic-ext-400-normal-1a60d844.woff2",
+    "src": "node_modules/@fontsource/raleway/files/raleway-cyrillic-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/raleway/files/raleway-vietnamese-400-normal.woff2": {
+    "file": "assets/raleway-vietnamese-400-normal-917d91f1.woff2",
+    "src": "node_modules/@fontsource/raleway/files/raleway-vietnamese-400-normal.woff2"
+  },
+  "node_modules/@fontsource/raleway/files/raleway-latin-ext-400-normal.woff2": {
+    "file": "assets/raleway-latin-ext-400-normal-293dc7f5.woff2",
+    "src": "node_modules/@fontsource/raleway/files/raleway-latin-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/raleway/files/raleway-latin-400-normal.woff2": {
+    "file": "assets/raleway-latin-400-normal-c78a1da5.woff2",
+    "src": "node_modules/@fontsource/raleway/files/raleway-latin-400-normal.woff2"
+  },
   "node_modules/@fontsource/inter/files/inter-cyrillic-400-normal.woff2": {
     "file": "assets/inter-cyrillic-400-normal-e9493683.woff2",
     "src": "node_modules/@fontsource/inter/files/inter-cyrillic-400-normal.woff2"
@@ -27,40 +47,32 @@
     "file": "assets/inter-latin-400-normal-0364d368.woff2",
     "src": "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2"
   },
-  "node_modules/@fontsource/raleway/files/raleway-cyrillic-ext-400-normal.woff2": {
-    "file": "assets/raleway-cyrillic-ext-400-normal-1a60d844.woff2",
-    "src": "node_modules/@fontsource/raleway/files/raleway-cyrillic-ext-400-normal.woff2"
-  },
-  "node_modules/@fontsource/raleway/files/raleway-cyrillic-400-normal.woff2": {
-    "file": "assets/raleway-cyrillic-400-normal-679eb908.woff2",
-    "src": "node_modules/@fontsource/raleway/files/raleway-cyrillic-400-normal.woff2"
-  },
-  "node_modules/@fontsource/raleway/files/raleway-vietnamese-400-normal.woff2": {
-    "file": "assets/raleway-vietnamese-400-normal-917d91f1.woff2",
-    "src": "node_modules/@fontsource/raleway/files/raleway-vietnamese-400-normal.woff2"
-  },
-  "node_modules/@fontsource/raleway/files/raleway-latin-ext-400-normal.woff2": {
-    "file": "assets/raleway-latin-ext-400-normal-293dc7f5.woff2",
-    "src": "node_modules/@fontsource/raleway/files/raleway-latin-ext-400-normal.woff2"
-  },
-  "node_modules/@fontsource/raleway/files/raleway-latin-400-normal.woff2": {
-    "file": "assets/raleway-latin-400-normal-c78a1da5.woff2",
-    "src": "node_modules/@fontsource/raleway/files/raleway-latin-400-normal.woff2"
+  "node_modules/@fontsource/raleway/files/raleway-all-400-normal.woff": {
+    "file": "assets/raleway-all-400-normal-e0fbe643.woff",
+    "src": "node_modules/@fontsource/raleway/files/raleway-all-400-normal.woff"
   },
   "node_modules/@fontsource/inter/files/inter-all-400-normal.woff": {
     "file": "assets/inter-all-400-normal-f824029b.woff",
     "src": "node_modules/@fontsource/inter/files/inter-all-400-normal.woff"
   },
-  "node_modules/@fontsource/raleway/files/raleway-all-400-normal.woff": {
-    "file": "assets/raleway-all-400-normal-e0fbe643.woff",
-    "src": "node_modules/@fontsource/raleway/files/raleway-all-400-normal.woff"
-  },
   "resources/js/app.css": {
     "file": "assets/app-7635bb9f.css",
     "src": "resources/js/app.css"
   },
+  "_ApplicationLogo-52e059c5.js": {
+    "file": "assets/ApplicationLogo-52e059c5.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
   "_InputLabel-505b1bc5.js": {
     "file": "assets/InputLabel-505b1bc5.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_TextInput-3a57817d.js": {
+    "file": "assets/TextInput-3a57817d.js",
     "imports": [
       "resources/js/app.jsx"
     ]
@@ -85,18 +97,6 @@
       "_ApplicationLogo-52e059c5.js"
     ]
   },
-  "_PrimaryButton-681acff8.js": {
-    "file": "assets/PrimaryButton-681acff8.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_TextInput-3a57817d.js": {
-    "file": "assets/TextInput-3a57817d.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
     "file": "assets/ForgotPassword-2017f2d6.js",
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx",
@@ -109,9 +109,41 @@
       "_ApplicationLogo-52e059c5.js"
     ]
   },
+  "_PrimaryButton-681acff8.js": {
+    "file": "assets/PrimaryButton-681acff8.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
   "resources/js/Pages/Auth/Login.jsx": {
     "file": "assets/Login-b8ecb8a0.js",
     "src": "resources/js/Pages/Auth/Login.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_GuestLayout-6527eed5.js",
+      "_TextInput-3a57817d.js",
+      "_InputLabel-505b1bc5.js",
+      "_PrimaryButton-681acff8.js",
+      "_ApplicationLogo-52e059c5.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Register.jsx": {
+    "file": "assets/Register-78d0400b.js",
+    "src": "resources/js/Pages/Auth/Register.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_GuestLayout-6527eed5.js",
+      "_TextInput-3a57817d.js",
+      "_InputLabel-505b1bc5.js",
+      "_PrimaryButton-681acff8.js",
+      "_ApplicationLogo-52e059c5.js"
+    ]
+  },
+  "resources/js/Pages/Auth/ResetPassword.jsx": {
+    "file": "assets/ResetPassword-c5f72fd8.js",
+    "src": "resources/js/Pages/Auth/ResetPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
@@ -133,14 +165,6 @@
       "_transition-915410e8.js"
     ]
   },
-  "_AuthenticatedLayout-c8a777ac.js": {
-    "file": "assets/AuthenticatedLayout-c8a777ac.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_ApplicationLogo-52e059c5.js",
-      "_transition-915410e8.js"
-    ]
-  },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
     "file": "assets/VerifyEmail-70329b3f.js",
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx",
@@ -152,54 +176,18 @@
       "_ApplicationLogo-52e059c5.js"
     ]
   },
-  "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword-c5f72fd8.js",
-    "src": "resources/js/Pages/Auth/ResetPassword.jsx",
-    "isDynamicEntry": true,
+  "_AuthenticatedLayout-c8a777ac.js": {
+    "file": "assets/AuthenticatedLayout-c8a777ac.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-6527eed5.js",
-      "_TextInput-3a57817d.js",
-      "_InputLabel-505b1bc5.js",
-      "_PrimaryButton-681acff8.js",
-      "_ApplicationLogo-52e059c5.js"
-    ]
-  },
-  "_ApplicationLogo-52e059c5.js": {
-    "file": "assets/ApplicationLogo-52e059c5.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register-78d0400b.js",
-    "src": "resources/js/Pages/Auth/Register.jsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.jsx",
-      "_GuestLayout-6527eed5.js",
-      "_TextInput-3a57817d.js",
-      "_InputLabel-505b1bc5.js",
-      "_PrimaryButton-681acff8.js",
-      "_ApplicationLogo-52e059c5.js"
+      "_ApplicationLogo-52e059c5.js",
+      "_transition-915410e8.js"
     ]
   },
   "_transition-915410e8.js": {
     "file": "assets/transition-915410e8.js",
     "imports": [
       "resources/js/app.jsx"
-    ]
-  },
-  "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
-    "file": "assets/UpdatePasswordForm-77024c75.js",
-    "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.jsx",
-      "_TextInput-3a57817d.js",
-      "_InputLabel-505b1bc5.js",
-      "_PrimaryButton-681acff8.js",
-      "_transition-915410e8.js"
     ]
   },
   "resources/js/Pages/Profile/Edit.jsx": {
@@ -230,6 +218,18 @@
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx": {
     "file": "assets/UpdateProfileInformationForm-8a05ca06.js",
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-3a57817d.js",
+      "_InputLabel-505b1bc5.js",
+      "_PrimaryButton-681acff8.js",
+      "_transition-915410e8.js"
+    ]
+  },
+  "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
+    "file": "assets/UpdatePasswordForm-77024c75.js",
+    "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
