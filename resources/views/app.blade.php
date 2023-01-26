@@ -13,7 +13,7 @@
         <meta name="robots" content="index, follow"/>
         <meta name="google-site-verification" content=""/>
         <meta name="facebook-domain-verification" content=""/>
-        <meta name="language" content=å"id"/>
+        <meta name="language" content="id"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"/>
         <meta name="theme-color" content="#70CBCF"/>
 
