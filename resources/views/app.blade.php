@@ -18,10 +18,10 @@
         <meta name="theme-color" content="#70CBCF"/>
 
         <link rel="canonical" href="https://www.goborneo.id"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="https://www.goborneo.id/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="https://www.goborneo.id/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="https://www.goborneo.id/favicon-16x16.png"/>
-        <link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="https://www.goborneo.id/favicon.ico?v=1"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.goborneo.id/public/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.goborneo.id/public/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.goborneo.id/public/favicon-16x16.png"/>
+        <link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="https://www.goborneo.id/public/favicon.ico?v=1"/>
 
         <!-- Scripts -->
         @routes
