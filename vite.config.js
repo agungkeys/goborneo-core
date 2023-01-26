@@ -11,4 +11,5 @@ export default defineConfig({
     react(),
   ],
   assetsInclude: ['**/*.woff', '**/*.woff2'],
+  publicDir: 'public',
 });
