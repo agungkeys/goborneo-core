@@ -5,19 +5,27 @@ namespace App;
 class Meta
 {
     protected static $meta = [];
+    protected static $property = [];
     protected static $title = "GoBorneo - Beautiful Kalimantan";
     protected static $image = "https://res.cloudinary.com/do5w0oe22/image/upload/v1674557601/images/favicon_kv0qm4.png";
     protected static $icon = "https://res.cloudinary.com/do5w0oe22/image/upload/v1674557601/images/favicon_kv0qm4.png";
+
+    public static function addMetaTitle($content)
+    {
+        static::$title = $content;
+    }
 
     public static function addMeta($name, $content)
     {
         static::$meta[$name] = $content;
     }
 
-    public static function addMetaTitle($content)
+    public static function addMetaProperty($name, $content)
     {
-        static::$title = $content;
+        static::$property[$name] = $content;
     }
+
+    
 
     public static function render()
     {
@@ -28,6 +36,10 @@ class Meta
         foreach (static::$meta as $name => $content) {
             $html .= '<meta name="'.$name.'" content="'.$content.'" />'.PHP_EOL;
         }
+
+        foreach (static::$property as $name => $content) {
+          $html .= '<meta property="'.$name.'" content="'.$content.'" />'.PHP_EOL;
+      }
         return $html;
     }
 }

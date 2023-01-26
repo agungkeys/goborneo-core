@@ -1,9 +1,8 @@
-/* eslint-disable react/no-unknown-property */
 import { Link } from '@inertiajs/react';
 import { Box, Container, Flex, Image } from '@chakra-ui/react';
 
 export default function Layout(props) {
-  const { children, meta } = props;
+  const { children } = props;
   return (
     <Box>
       <Box
