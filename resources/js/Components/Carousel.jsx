@@ -8,22 +8,22 @@ export default function Carousel() {
     {
       id: 0,
       image:
-        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/miang_b7v6jz.webp',
+        'https://res.cloudinary.com/do5w0oe22/image/upload/w_498,h_280,c_fill/images/banner/miang_b7v6jz.webp',
     },
     {
       id: 1,
       image:
-        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/tifaf_w0agwh.webp',
+        'https://res.cloudinary.com/do5w0oe22/image/upload/w_498,h_280,c_fill/images/banner/tifaf_w0agwh.webp',
     },
     {
       id: 2,
       image:
-        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/biduk2_dagn9w.webp',
+        'https://res.cloudinary.com/do5w0oe22/image/upload/w_498,h_280,c_fill/images/banner/biduk2_dagn9w.webp',
     },
     {
       id: 3,
       image:
-        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/adat_h6pai9.webp',
+        'https://res.cloudinary.com/do5w0oe22/image/upload/w_498,h_280,c_fill/images/banner/adat_h6pai9.webp',
     },
   ];
   const NextArrow = ({ onClick }) => {
