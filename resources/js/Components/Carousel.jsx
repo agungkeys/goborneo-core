@@ -7,20 +7,23 @@ export default function Carousel() {
   const data = [
     {
       id: 0,
-      image: '/image/miang.png',
+      image:
+        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/miang_b7v6jz.webp',
     },
     {
       id: 1,
-      image: '/image/tifaf.png',
+      image:
+        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/tifaf_w0agwh.webp',
     },
     {
       id: 2,
-      image: '/image/adat.png',
+      image:
+        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/biduk2_dagn9w.webp',
     },
     {
       id: 3,
       image:
-        'https://dispar.kaltimprov.go.id/wp-content/uploads/2022/02/Biduk-Biduk-e1650418220713.png',
+        'https://res.cloudinary.com/borneos-co/image/upload/w_498,h_280,c_fill/images/banner/adat_h6pai9.webp',
     },
   ];
   const NextArrow = ({ onClick }) => {

@@ -26,7 +26,7 @@ export default function Index(props) {
             borderRightRadius="2em"
             w="full"
             h="auto"
-            backgroundImage="/image/bg-landing.png"
+            backgroundImage="https://res.cloudinary.com/do5w0oe22/image/upload/v1674815488/images/banner/bg-landing_m07duy.webp"
             backgroundSize="cover"
             backgroundPosition="center center"
           >
