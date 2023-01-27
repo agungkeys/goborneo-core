@@ -5,6 +5,7 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 import './bootstrap';
 import '../css/app.css';
+import '../css/banners.css';
 
 const theme = extendTheme({
   fonts: {

@@ -23,6 +23,8 @@
         <link rel="icon" type="image/png" sizes="16x16" href="https://www.goborneo.id/public/favicon-16x16.png"/>
         <link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="https://www.goborneo.id/public/favicon.ico?v=1"/>
 
+        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <!-- Scripts -->
         @routes
         @viteReactRefresh
