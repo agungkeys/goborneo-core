@@ -100,7 +100,7 @@ export default function Carousel() {
               objectFit="cover"
               borderRadius="1.5em"
               w="100%"
-              h="280px"
+              maxH="280px"
               variant="banner"
               src={item?.image}
             />
